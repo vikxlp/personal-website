@@ -15,12 +15,12 @@ hugo_stats.json
 *.bak
 *~
 
-# Site analysis and documentation
-ANALYSIS_*.md
-ANALYSIS_*.txt
-SITE_DOCUMENTATION.md
-CONTENT_INVENTORY.md
-*.html
-*_text.txt
-extract_text.py
-images/
+# Site analysis and documentation (root level only)
+/ANALYSIS_*.md
+/ANALYSIS_*.txt
+/SITE_DOCUMENTATION.md
+/CONTENT_INVENTORY.md
+/*.html
+/*_text.txt
+/extract_text.py
+/images/
