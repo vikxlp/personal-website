@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="home">
+    <div class="hero">
+        <h1>{{ .Site.Title }}</h1>
+        <p class="subtitle">{{ .Site.Params.description }}</p>
+    </div>
+
+    <section class="intro">
+        {{ .Content }}
+    </section>
+
+    <section class="recent-posts">
+        <h2>Recent Posts</h2>
+        <div class="post-list">
+            {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
+            <article class="post-preview">
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                <p>{{ .Summary }}</p>
+            </article>
+            {{ end }}
+        </div>
+    </section>
+</div>
+{{ end }}

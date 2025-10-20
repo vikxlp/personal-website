@@ -1,0 +1,16 @@
+# Hugo
+/public/
+/resources/_gen/
+hugo_stats.json
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*.bak
+*~

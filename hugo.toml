@@ -1,0 +1,33 @@
+baseURL = 'https://vikalpgupta.com/'
+languageCode = 'en-us'
+title = 'Vikalp Gupta'
+theme = ''
+
+[params]
+  description = 'Personal website of Vikalp Gupta'
+  author = 'Vikalp Gupta'
+
+[menu]
+  [[menu.main]]
+    name = 'Blog'
+    url = '/blog/'
+    weight = 1
+
+  [[menu.main]]
+    name = 'Photography'
+    url = '/photography/'
+    weight = 2
+
+  [[menu.main]]
+    name = 'Gear'
+    url = '/gear/'
+    weight = 3
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
