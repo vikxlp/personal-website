@@ -6,6 +6,7 @@ theme = ''
 [params]
   description = 'Digital product designer working at the intersection of technology & human behaviour'
   author = 'Vikalp Gupta'
+  ogImage = '/images/og-image.png'
 
 [menu]
   [[menu.main]]

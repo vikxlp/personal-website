@@ -14,3 +14,13 @@ hugo_stats.json
 *.swp
 *.bak
 *~
+
+# Site analysis and documentation
+ANALYSIS_*.md
+ANALYSIS_*.txt
+SITE_DOCUMENTATION.md
+CONTENT_INVENTORY.md
+*.html
+*_text.txt
+extract_text.py
+images/
