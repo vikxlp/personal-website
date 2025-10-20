@@ -1,7 +1,6 @@
 baseURL = 'https://vikalpgupta.com/'
 languageCode = 'en-us'
 title = 'Vikalp, Designer'
-theme = ''
 
 [params]
   description = 'Digital product designer working at the intersection of technology & human behaviour'
