@@ -10,19 +10,9 @@ theme = ''
 
 [menu]
   [[menu.main]]
-    name = 'Blog'
+    name = 'Writing'
     url = '/blog/'
     weight = 1
-
-  [[menu.main]]
-    name = 'Photography'
-    url = '/photography/'
-    weight = 2
-
-  [[menu.main]]
-    name = 'Gear'
-    url = '/gear/'
-    weight = 3
 
 [outputs]
   home = ['HTML', 'RSS']
