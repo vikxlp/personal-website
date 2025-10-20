@@ -6,112 +6,146 @@
 }
 
 :root {
-    --max-width: 800px;
-    --spacing: 2rem;
-    --color-text: #333;
-    --color-bg: #fff;
-    --color-accent: #0066cc;
-    --color-border: #e0e0e0;
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --max-width: 640px;
+    --spacing: 3rem;
+    --color-text-primary: #293A41;
+    --color-text-medium: #414F55;
+    --color-text-light: #889FA9;
+    --color-bg: #FAFEFF;
+    --color-accent: #0099FF;
+    --color-border: rgba(225, 232, 235, 0.24);
+    --font-sans: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: 'Newsreader', Georgia, serif;
     --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
 body {
     font-family: var(--font-sans);
-    line-height: 1.6;
-    color: var(--color-text);
+    line-height: 1.7;
+    color: var(--color-text-medium);
     background: var(--color-bg);
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Header */
 .site-header {
-    border-bottom: 1px solid var(--color-border);
-    padding: 1rem 0;
+    padding: 2.5rem 0 2rem;
     margin-bottom: var(--spacing);
 }
 
 .site-header nav {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-weight: 600;
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: var(--color-text);
+    transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+.logo img {
+    display: block;
+    width: 32px;
+    height: 32px;
 }
 
 .nav-menu {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     list-style: none;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--color-text);
-    transition: color 0.2s;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    font-weight: 300;
+    transition: color 0.2s ease;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: var(--color-accent);
+    color: var(--color-text-medium);
 }
 
 /* Main Content */
 main {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1rem var(--spacing);
-    min-height: calc(100vh - 200px);
+    padding: 0 2rem 4rem;
+    min-height: calc(100vh - 300px);
 }
 
 /* Home Page */
 .hero {
-    text-align: center;
-    padding: 3rem 0;
+    padding: 1rem 0 0;
+    margin-bottom: 2.5rem;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.75rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 0;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--color-text-light);
+    font-weight: 300;
 }
 
 .intro {
-    margin: var(--spacing) 0;
+    margin: 0 0 3rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-medium);
+}
+
+.intro p {
+    margin-bottom: 1.2rem;
 }
 
 /* Blog Posts */
 .recent-posts {
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .recent-posts h2,
 .list h1 {
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .post-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .post-preview {
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 1.5rem;
+    padding-bottom: 0;
 }
 
 .post-preview:last-child {
@@ -121,13 +155,16 @@ main {
 .post-preview h2,
 .post-preview h3 {
     margin-bottom: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.4;
 }
 
 .post-preview h2 a,
 .post-preview h3 a {
-    color: var(--color-text);
+    color: var(--color-text-primary);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 }
 
 .post-preview h2 a:hover,
@@ -137,60 +174,75 @@ main {
 
 .post-preview time {
     display: block;
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+    font-weight: 300;
 }
 
 .post-preview p {
-    color: #555;
+    color: var(--color-text-medium);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    display: none;
 }
 
 /* Single Post/Page */
 .single header {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .single h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
 }
 
 .single time {
     display: block;
-    color: #666;
+    color: var(--color-text-light);
     font-size: 0.95rem;
+    font-weight: 300;
 }
 
 .content {
     line-height: 1.8;
+    color: var(--color-text-medium);
+    font-size: 1.05rem;
 }
 
 .content h2 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
 }
 
 .content h3 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
 }
 
 .content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .content a {
     color: var(--color-accent);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+    transition: opacity 0.2s ease;
 }
 
 .content a:hover {
-    border-bottom-color: var(--color-accent);
+    opacity: 0.7;
 }
 
 .content ul,
@@ -280,24 +332,90 @@ main {
 
 /* Footer */
 .site-footer {
-    border-top: 1px solid var(--color-border);
-    padding: 2rem 1rem;
-    text-align: center;
-    color: #666;
+    padding: 4rem 2rem 3rem;
+    text-align: right;
+    color: var(--color-text-light);
     font-size: 0.9rem;
+    font-weight: 300;
+    font-style: italic;
+    font-family: var(--font-serif);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 300;
+    font-style: normal;
+    font-family: var(--font-sans);
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-text-medium);
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    :root {
+        --max-width: 100%;
+        --spacing: 2rem;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 0 1.5rem 3rem;
+    }
+
+    .site-header nav {
+        padding: 0 1.5rem;
+    }
+
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .nav-menu {
-        gap: 1rem;
+        gap: 1.5rem;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+
+    .post-preview h2,
+    .post-preview h3 {
+        font-size: 1.2rem;
+    }
+
+    .single h1 {
+        font-size: 2rem;
     }
 
     .photo-gallery {
         grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        text-align: left;
+        padding: 3rem 1.5rem 2rem;
     }
 }

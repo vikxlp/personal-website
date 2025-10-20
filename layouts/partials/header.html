@@ -1,6 +1,8 @@
 <header class="site-header">
     <nav>
-        <a href="/" class="logo">{{ .Site.Title }}</a>
+        <a href="/" class="logo">
+            <img src="/images/mark.svg" alt="Vikalp Gupta" width="32" height="32">
+        </a>
         <ul class="nav-menu">
             {{ range .Site.Menus.main }}
             <li><a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}class="active"{{ end }}>{{ .Name }}</a></li>

@@ -1,10 +1,10 @@
 baseURL = 'https://vikalpgupta.com/'
 languageCode = 'en-us'
-title = 'Vikalp Gupta'
+title = 'Vikalp, Designer'
 theme = ''
 
 [params]
-  description = 'Personal website of Vikalp Gupta'
+  description = 'Digital product designer working at the intersection of technology & human behaviour'
   author = 'Vikalp Gupta'
 
 [menu]

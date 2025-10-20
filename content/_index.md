@@ -2,6 +2,6 @@
 title: "Home"
 ---
 
-Welcome! I'm Vikalp Gupta, and this is my personal space on the web.
+I'm a digital product designer. I enjoy working at the intersection of tech & human behaviour, crafting meaningful experiences.
 
-I write about technology, share my photography, and document the tools and gear I use.
+I'll be happy to get in touch with you.
