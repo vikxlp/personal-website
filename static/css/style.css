@@ -1,3 +1,6 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -9,17 +12,18 @@
     --max-width: 640px;
     --spacing: 3rem;
     --color-text-primary: #293A41;
+    --color-text-secondary: #4D646D;
     --color-text-medium: #414F55;
-    --color-text-light: #889FA9;
+    --color-text-light: #7D8E95;
     --color-bg: #FAFEFF;
     --color-accent: #0099FF;
     --color-border: rgba(225, 232, 235, 0.24);
-    --font-sans: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-serif: 'Newsreader', Georgia, serif;
-    --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
+    --color-line: #E1E8EB;
+    --color-line-dark: #ABBBC2;
+    --font-sans: Sora, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: Newsreader, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, Georgia, serif;
+    --font-mono: 'SF Mono', Menlo, Monaco, 'Courier New', Courier, monospace;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
 body {
     font-family: var(--font-sans);
@@ -34,14 +38,11 @@ body {
 
 /* Header */
 .site-header {
-    padding: 2.5rem 0 2rem;
+    padding: 1.5rem 1.5rem 2rem;
     margin-bottom: var(--spacing);
 }
 
 .site-header nav {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,8 +61,8 @@ body {
 
 .logo img {
     display: block;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
 }
 
 .nav-menu {
@@ -87,23 +88,23 @@ body {
 main {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 2rem 4rem;
+    padding: 0 1.5rem 4rem;
     min-height: calc(100vh - 300px);
 }
 
 /* Home Page */
 .hero {
-    padding: 1rem 0 0;
-    margin-bottom: 2.5rem;
+    padding: 0;
+    margin-bottom: 1rem;
 }
 
 .hero h1 {
-    font-size: 2.75rem;
-    font-weight: 400;
-    color: var(--color-text-primary);
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
     margin-bottom: 0;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+    line-height: 1.56;
+    letter-spacing: 0;
 }
 
 .subtitle {
@@ -114,13 +115,14 @@ main {
 
 .intro {
     margin: 0 0 3rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--color-text-medium);
+    font-size: 1.125rem;
+    line-height: 1.56;
+    color: var(--color-text-secondary);
+    font-weight: 300;
 }
 
 .intro p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Blog Posts */
@@ -332,42 +334,70 @@ main {
 
 /* Footer */
 .site-footer {
-    padding: 4rem 2rem 3rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
     text-align: right;
     color: var(--color-text-light);
-    font-size: 0.9rem;
-    font-weight: 300;
+    font-size: 0.875rem;
+    font-weight: 400;
     font-style: italic;
     font-family: var(--font-serif);
-    max-width: var(--max-width);
-    margin: 0 auto;
+    width: 144px;
+    z-index: 10;
+}
+
+/* When page has scroll (content is taller than viewport) */
+body.has-scroll .site-footer {
+    position: static;
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
 }
 
 .site-footer p {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
+    margin-bottom: 0;
+    line-height: 1.43;
 }
 
 /* Social Links */
 .social-links {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 0;
     flex-wrap: wrap;
 }
 
 .social-links a {
     color: var(--color-text-light);
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     font-style: normal;
     font-family: var(--font-sans);
     transition: color 0.2s ease;
+    position: relative;
 }
 
 .social-links a:hover {
     color: var(--color-text-medium);
+}
+
+.social-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: var(--color-line);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover::after {
+    opacity: 1;
 }
 
 /* Responsive */
@@ -385,20 +415,20 @@ main {
         padding: 0 1.5rem 3rem;
     }
 
-    .site-header nav {
-        padding: 0 1.5rem;
+    .site-header {
+        padding: 1.5rem 1rem 2rem;
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 1.125rem;
     }
 
     .nav-menu {
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .nav-menu a {
-        font-size: 0.9rem;
+        font-size: 0.875rem;
     }
 
     .post-preview h2,
@@ -415,7 +445,13 @@ main {
     }
 
     .site-footer {
+        position: static;
         text-align: left;
-        padding: 3rem 1.5rem 2rem;
+        margin: 3rem 1rem 2rem;
+        width: auto;
+    }
+
+    body.has-scroll .site-footer {
+        margin: 3rem 1rem 2rem;
     }
 }

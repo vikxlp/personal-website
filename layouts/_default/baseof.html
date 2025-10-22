@@ -33,5 +33,18 @@
         {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
+
+    <script>
+        // Detect if page has scroll and toggle class
+        function checkScroll() {
+            const hasScroll = document.documentElement.scrollHeight > window.innerHeight;
+            document.body.classList.toggle('has-scroll', hasScroll);
+        }
+
+        // Check on load and resize
+        checkScroll();
+        window.addEventListener('resize', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
 </body>
 </html>
