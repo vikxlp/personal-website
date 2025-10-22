@@ -3,29 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
-    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    {{- $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) -}}
+    {{- $description := cond .Description .Description .Site.Params.description -}}
+
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    <link rel="canonical" href="{{ .Permalink }}">
 
     <!-- Favicon -->
     <link rel="icon" href="/images/mark.svg" type="image/svg+xml">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Preload critical font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-    <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
-    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
     <meta property="og:url" content="{{ .Permalink }}">
-    {{ if .Site.Params.ogImage }}<meta property="og:image" content="{{ .Site.Params.ogImage | absURL }}">{{ end }}
+    {{- with .Site.Params.ogImage }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
-    <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    {{ if .Site.Params.ogImage }}<meta name="twitter:image" content="{{ .Site.Params.ogImage | absURL }}">{{ end }}
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ .Permalink }}">
-
-    <link rel="stylesheet" href="/css/style.css">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    {{- with .Site.Params.ogImage }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
 </head>
 <body>
     {{ partial "header.html" . }}
@@ -35,16 +42,17 @@
     {{ partial "footer.html" . }}
 
     <script>
-        // Detect if page has scroll and toggle class
-        function checkScroll() {
-            const hasScroll = document.documentElement.scrollHeight > window.innerHeight;
-            document.body.classList.toggle('has-scroll', hasScroll);
-        }
+        (function() {
+            'use strict';
 
-        // Check on load and resize
-        checkScroll();
-        window.addEventListener('resize', checkScroll);
-        window.addEventListener('load', checkScroll);
+            function checkScroll() {
+                document.body.classList.toggle('has-scroll',
+                    document.documentElement.scrollHeight > window.innerHeight);
+            }
+
+            checkScroll();
+            window.addEventListener('resize', checkScroll, { passive: true });
+        })();
     </script>
 </body>
 </html>
