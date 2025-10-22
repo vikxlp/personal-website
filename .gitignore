@@ -2,6 +2,7 @@
 /public/
 /resources/_gen/
 hugo_stats.json
+.hugo_build.lock
 
 # macOS
 .DS_Store
@@ -15,15 +16,8 @@ hugo_stats.json
 *.bak
 *~
 
-# Site analysis and documentation (root level only)
-/ANALYSIS_*.md
-/ANALYSIS_*.txt
-/SITE_DOCUMENTATION.md
-/CONTENT_INVENTORY.md
-/*.html
-/*_text.txt
-/extract_text.py
-/images/
+# Claude Code
+.claude/
 
 # Future content
 /_future_pages/
