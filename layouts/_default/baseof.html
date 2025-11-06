@@ -54,5 +54,9 @@
             window.addEventListener('resize', checkScroll, { passive: true });
         })();
     </script>
+
+    {{ if eq .Section "blog" }}
+    <script src="/js/toc.js"></script>
+    {{ end }}
 </body>
 </html>

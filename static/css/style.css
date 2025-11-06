@@ -25,6 +25,11 @@
     --font-mono: 'SF Mono', Menlo, Monaco, 'Courier New', Courier, monospace;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
 body {
     font-family: var(--font-sans);
     line-height: 1.7;
@@ -401,6 +406,91 @@ body.has-scroll .site-footer {
     opacity: 1;
 }
 
+/* Table of Contents */
+.toc-container {
+    position: fixed;
+    left: 1.5rem;
+    z-index: 100;
+}
+
+.toc {
+    background: rgba(225, 232, 235, 0.25);
+    border-radius: 6px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.5s ease-out;
+    min-width: 28px;
+}
+
+/* Default state - show lines */
+.toc-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.toc-line {
+    height: 2px;
+    width: 12px;
+    background: #889FA9;
+    transition: all 0.5s ease-out;
+}
+
+.toc-line.active {
+    background: #4D646D;
+}
+
+/* Hover state - show text */
+.toc-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    position: absolute;
+    top: 12px;
+    left: 8px;
+}
+
+.toc:hover .toc-lines {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.toc:hover .toc-items {
+    opacity: 1;
+    visibility: visible;
+}
+
+.toc-item {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #889FA9;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.5s ease-out;
+    cursor: pointer;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toc-item.active {
+    color: #4D646D;
+}
+
+.toc-item:hover {
+    color: #4D646D;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     :root {
@@ -454,5 +544,9 @@ body.has-scroll .site-footer {
 
     body.has-scroll .site-footer {
         margin: 3rem 1rem 2rem;
+    }
+
+    .toc-container {
+        display: none;
     }
 }
