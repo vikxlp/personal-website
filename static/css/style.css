@@ -414,48 +414,47 @@ body.has-scroll .site-footer {
 }
 
 .toc {
-    background: rgba(225, 232, 235, 0.25);
-    border-radius: 6px;
-    padding: 12px 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    transition: all 0.5s ease-out;
-    min-width: 28px;
+    position: relative;
+    background: rgba(225, 232, 235, 0.32);
+    border-radius: 8px;
+    padding: 8px;
 }
 
-/* Default state - show lines */
+/* Default state - always visible lines */
 .toc-lines {
     display: flex;
     flex-direction: column;
     gap: 8px;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    transition: opacity 0s, visibility 0s;
 }
 
 .toc-line {
     height: 2px;
     width: 12px;
     background: #889FA9;
-    transition: all 0.5s ease-out;
 }
 
 .toc-line.active {
     background: #4D646D;
 }
 
-/* Hover state - show text */
+/* Hover state - text overlay appears on top */
 .toc-items {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(225, 232, 235, 0.32);
+    border-radius: 8px;
+    padding: 4px 8px;
+    width: 200px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-    position: absolute;
-    top: 12px;
-    left: 8px;
+    transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
 }
 
 .toc:hover .toc-lines {
@@ -471,14 +470,14 @@ body.has-scroll .site-footer {
 .toc-item {
     font-family: var(--font-sans);
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 20px;
     color: #889FA9;
     text-decoration: none;
     white-space: nowrap;
-    transition: color 0.5s ease-out;
     cursor: pointer;
-    max-width: 200px;
+    padding: 4px 0;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
 }
