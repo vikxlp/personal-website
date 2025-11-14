@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/634801fd-a1bc-4406-92e2-5ea67dd49c36/deploy-status)](https://app.netlify.com/projects/vikalpme/deploys)
+
 # Vikalp Gupta - Personal Website
 
 A lightweight, fast personal website built with Hugo and deployed on Netlify.
