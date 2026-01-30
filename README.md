@@ -7,8 +7,7 @@ A lightweight, fast personal website built with Hugo and deployed on Netlify.
 ## Features
 
 - Blog section for writing
-- Photography portfolio page
-- Gear/tools page
+- Gear/tools page (WIP)
 - Clean, minimal design
 - Fast loading times
 - Fully responsive
