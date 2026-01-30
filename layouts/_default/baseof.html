@@ -14,12 +14,16 @@
     <!-- Favicon -->
     <link rel="icon" href="/images/mark.svg" type="image/svg+xml">
 
-    <!-- Preload critical font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <!-- Preconnect to font origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Async font loading: preload + swap to avoid render-blocking -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&family=Newsreader:ital,wght@0,400;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&family=Newsreader:ital,wght@0,400;1,400&display=swap"></noscript>
 
     <!-- Open Graph -->
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
