@@ -17,6 +17,18 @@ title = 'Vikalp, Designer'
   home = ['HTML', 'RSS']
   section = ['HTML']
 
+[[params.socialLinks]]
+  name = "Email"
+  url = "mailto:contact@vikalpgupta.com"
+
+[[params.socialLinks]]
+  name = "Twitter"
+  url = "https://twitter.com/vikxlp"
+
+[[params.socialLinks]]
+  name = "Mastodon"
+  url = "https://tatooine.club/@vikalp"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

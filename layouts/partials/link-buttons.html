@@ -1,0 +1,6 @@
+<div class="link-buttons {{ with .class }}{{ . }}{{ end }}">
+    {{ range .links }}
+    {{ $isExternal := or (hasPrefix .url "http") (hasPrefix .url "//") }}
+    <a href="{{ .url }}"{{ if $isExternal }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
+    {{ end }}
+</div>

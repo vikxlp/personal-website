@@ -8,20 +8,13 @@
         {{ .Content }}
     </section>
 
-    <div class="social-links">
-        <a href="mailto:contact@vikalpgupta.com">Email</a>
-        <a href="https://twitter.com/vikxlp" target="_blank" rel="noopener">Twitter</a>
-        <a href="https://tatooine.club/@vikalp" target="_blank" rel="noopener">Mastodon</a>
-    </div>
+    {{ partial "link-buttons.html" (dict "links" .Site.Params.socialLinks "class" "social-links") }}
 
     <section class="recent-posts">
         <h2>Writing</h2>
         <div class="post-list">
             {{ range first 10 (where .Site.RegularPages "Section" "blog") }}
-            <article class="post-preview">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
-                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-            </article>
+            {{ partial "post-card.html" (dict "Page" . "showSummary" false) }}
             {{ end }}
         </div>
     </section>

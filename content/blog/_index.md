@@ -2,4 +2,4 @@
 title: "Blog"
 ---
 
-Thoughts, tutorials, and writings on technology, programming, and life.
+Thoughts and learnings on digital design, technology, and being a designer.

@@ -1,10 +1,10 @@
 {{ define "main" }}
 <article class="single">
     <header>
-        <h1>{{ .Title }}</h1>
         {{ if eq .Section "blog" }}
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ partial "post-meta.html" (dict "Date" .Date) }}
         {{ end }}
+        <h1>{{ .Title }}</h1>
     </header>
     <div class="content">
         {{ .Content }}

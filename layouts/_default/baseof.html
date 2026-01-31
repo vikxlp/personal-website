@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {{- $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) -}}
-    {{- $description := cond .Description .Description .Site.Params.description -}}
-
-    <title>{{ $title }}</title>
-    <meta name="description" content="{{ $description }}">
-    <link rel="canonical" href="{{ .Permalink }}">
+    {{ partial "meta.html" . }}
 
     <!-- Favicon -->
     <link rel="icon" href="/images/mark.svg" type="image/svg+xml">
@@ -24,19 +19,6 @@
     <!-- Async font loading: preload + swap to avoid render-blocking -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&family=Newsreader:ital,wght@0,400;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&family=Newsreader:ital,wght@0,400;1,400&display=swap"></noscript>
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-    <meta property="og:title" content="{{ $title }}">
-    <meta property="og:description" content="{{ $description }}">
-    <meta property="og:url" content="{{ .Permalink }}">
-    {{- with .Site.Params.ogImage }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $title }}">
-    <meta name="twitter:description" content="{{ $description }}">
-    {{- with .Site.Params.ogImage }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
 </head>
 <body>
     {{ partial "header.html" . }}

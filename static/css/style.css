@@ -162,7 +162,6 @@ main {
     border-bottom: none;
 }
 
-.post-preview h2,
 .post-preview h3 {
     margin-bottom: 0.5rem;
     font-size: 1.35rem;
@@ -170,14 +169,12 @@ main {
     line-height: 1.4;
 }
 
-.post-preview h2 a,
 .post-preview h3 a {
     color: var(--color-text-primary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.post-preview h2 a:hover,
 .post-preview h3 a:hover {
     color: var(--color-accent);
 }
@@ -314,27 +311,34 @@ body.has-scroll .site-footer {
     line-height: 1.43;
 }
 
-/* Social Links */
-.social-links {
+/* Link Buttons — base component for styled link rows */
+.link-buttons {
     display: flex;
     gap: 1rem;
-    margin-top: 0;
     flex-wrap: wrap;
 }
 
-.social-links a {
+.link-buttons a {
     color: var(--color-text-light);
     text-decoration: none;
     font-size: 1rem;
     font-weight: 400;
-    font-style: normal;
     font-family: var(--font-sans);
     transition: color 0.2s ease;
     position: relative;
 }
 
-.social-links a:hover {
-    color: var(--color-text-medium);
+.link-buttons a:hover {
+    color: var(--color-accent);
+}
+
+/* Social Links — link-buttons variant with underline animation */
+.social-links {
+    margin-top: 0;
+}
+
+.social-links a {
+    font-style: normal;
 }
 
 .social-links a::after {
@@ -344,7 +348,6 @@ body.has-scroll .site-footer {
     bottom: -4px;
     width: 100%;
     height: 1px;
-    background: var(--color-line);
     opacity: 0;
     transition: opacity 0.2s ease;
 }
@@ -468,7 +471,6 @@ body.has-scroll .site-footer {
         font-size: 0.875rem;
     }
 
-    .post-preview h2,
     .post-preview h3 {
         font-size: 1.2rem;
     }

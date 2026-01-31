@@ -46,7 +46,11 @@ Live: https://vikalpgupta.com/
 │   ├── index.html            # Home page template
 │   └── partials/
 │       ├── header.html       # Site header & navigation
-│       └── footer.html       # Site footer
+│       ├── footer.html       # Site footer
+│       ├── post-card.html    # Post preview card component
+│       ├── link-buttons.html # Reusable styled link row
+│       ├── meta.html         # OG & Twitter meta tags
+│       └── post-meta.html    # Post date/time display
 ├── static/
 │   ├── css/style.css         # All styles (~8K)
 │   ├── js/toc.js             # Table of Contents component (~3.5K)
@@ -93,12 +97,62 @@ Live: https://vikalpgupta.com/
 ```
 
 ### Naming Convention
-Component-scoped classes, BEM-adjacent: `site-header`, `post-preview`, `toc-container`, `social-links`.
+Component-scoped classes, BEM-adjacent: `site-header`, `post-preview`, `toc-container`, `link-buttons`, `social-links`.
 
 ### Key Patterns
 - `html { scroll-padding-top }` for anchor offset
 - Footer positioning: fixed when page is short, static when tall (JS scroll detection in baseof.html)
 - Smooth scroll enabled globally
+
+---
+
+## Components
+
+Reusable Hugo partials and JS modules. When adding UI that appears in multiple templates, create a partial instead of duplicating markup.
+
+### `partials/post-card.html`
+Post preview card used on home page and blog listing.
+
+**Parameters (via `dict`):**
+- `.Page` — page context (required)
+- `.showSummary` — `true` to show summary text, `false` for compact view
+
+**Usage:** `{{ partial "post-card.html" (dict "Page" . "showSummary" false) }}`
+
+**CSS:** `.post-preview`, `.post-preview h3`, `.post-preview time`
+
+### `partials/link-buttons.html`
+Styled row of links. Base component for social links, nav menus, or any horizontal link group.
+
+**Parameters (via `dict`):**
+- `.links` — array of objects with `name` and `url` fields (from `hugo.toml` params or menus)
+- `.class` — CSS modifier class (e.g., `"social-links"` for underline animation variant)
+
+**Usage:** `{{ partial "link-buttons.html" (dict "links" .Site.Params.socialLinks "class" "social-links") }}`
+
+**CSS:** `.link-buttons` (base), `.social-links` (modifier with underline animation)
+
+**Config:** Social links are defined in `hugo.toml` under `[[params.socialLinks]]` with `name` and `url` fields.
+
+### `partials/meta.html`
+Open Graph and Twitter meta tags. Receives the full page context and computes title/description.
+
+**Usage:** `{{ partial "meta.html" . }}`
+
+### `partials/post-meta.html`
+Post date/time display element.
+
+**Parameters (via `dict`):**
+- `.Date` — the page date
+
+**Usage:** `{{ partial "post-meta.html" (dict "Date" .Date) }}`
+
+### Table of Contents (`static/js/toc.js`)
+JS-generated navigation for blog posts. Not a Hugo partial — all HTML is created dynamically from h2 headings.
+
+- Loaded conditionally on blog section pages via `baseof.html`
+- CSS: `.toc-container`, `.toc`, `.toc-lines`, `.toc-items`, `.toc-item`
+- Hidden on mobile (<768px)
 
 ---
 
