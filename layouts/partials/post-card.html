@@ -1,7 +1,7 @@
-<article class="post-preview">
+<a href="{{ .Page.Permalink }}" class="post-preview">
     <time datetime="{{ .Page.Date.Format "2006-01-02" }}">{{ .Page.Date.Format "2 January 2006" }}</time>
-    <h3><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h3>
+    <h3>{{ .Page.Title }}</h3>
     {{ if .showSummary }}
     <p>{{ .Page.Summary }}</p>
     {{ end }}
-</article>
+</a>

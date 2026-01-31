@@ -22,6 +22,7 @@
     --font-sans: Sora, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-serif: Newsreader, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, Georgia, serif;
     --font-mono: 'SF Mono', Menlo, Monaco, 'Courier New', Courier, monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
@@ -56,11 +57,16 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: transform 0.2s var(--ease-out-expo), opacity 0.2s var(--ease-out-expo);
+    will-change: transform;
 }
 
 .logo:hover {
-    opacity: 0.7;
+    transform: scale(1.04);
+}
+
+.logo:active {
+    transform: scale(0.96);
 }
 
 .logo img {
@@ -84,7 +90,7 @@ body {
     color: var(--color-text-light);
     font-size: 0.95rem;
     font-weight: 300;
-    transition: color 0.2s ease;
+    transition: color 0.15s var(--ease-out-expo);
 }
 
 .nav-menu a:hover,
@@ -156,6 +162,9 @@ main {
 
 .post-preview {
     padding-bottom: 0;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .post-preview:last-child {
@@ -167,15 +176,11 @@ main {
     font-size: 1.35rem;
     font-weight: 400;
     line-height: 1.4;
-}
-
-.post-preview h3 a {
     color: var(--color-text-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.15s var(--ease-out-expo);
 }
 
-.post-preview h3 a:hover {
+.post-preview:hover h3 {
     color: var(--color-accent);
 }
 
@@ -183,7 +188,7 @@ main {
     display: block;
     font-size: 0.95rem;
     color: var(--color-text-light);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.1rem;
     font-weight: 300;
 }
 
@@ -238,12 +243,14 @@ main {
 
 .content a {
     color: var(--color-accent);
-    text-decoration: none;
-    transition: opacity 0.2s ease;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.2s var(--ease-out-expo);
 }
 
 .content a:hover {
-    opacity: 0.7;
+    text-decoration-color: var(--color-accent);
 }
 
 .content ul,
@@ -324,12 +331,16 @@ body.has-scroll .site-footer {
     font-size: 1rem;
     font-weight: 400;
     font-family: var(--font-sans);
-    transition: color 0.2s ease;
+    transition: color 0.15s var(--ease-out-expo), transform 0.15s var(--ease-out-expo);
     position: relative;
 }
 
 .link-buttons a:hover {
     color: var(--color-accent);
+}
+
+.link-buttons a:active {
+    transform: scale(0.97);
 }
 
 /* Social Links — link-buttons variant with underline animation */
@@ -339,21 +350,14 @@ body.has-scroll .site-footer {
 
 .social-links a {
     font-style: normal;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.2s var(--ease-out-expo);
 }
 
-.social-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 1px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-.social-links a:hover::after {
-    opacity: 1;
+.social-links a:hover {
+    text-decoration-color: var(--color-accent);
 }
 
 /* Table of Contents */
@@ -377,17 +381,19 @@ body.has-scroll .site-footer {
     gap: 8px;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0s, visibility 0s;
+    transition: opacity 0.15s var(--ease-out-expo), visibility 0s linear 0.15s;
 }
 
 .toc-line {
     height: 2px;
     width: 12px;
     background: #889FA9;
+    transition: background-color 0.2s var(--ease-out-expo), transform 0.2s var(--ease-out-expo);
 }
 
 .toc-line.active {
     background: #4D646D;
+    transform: scaleX(1.1);
 }
 
 /* Hover state - text overlay appears on top */
@@ -404,17 +410,25 @@ body.has-scroll .site-footer {
     width: 200px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.15s ease-out, visibility 0.15s ease-out;
+    transform: translateX(-4px);
+    transition: opacity 0.15s var(--ease-out-expo),
+                transform 0.15s var(--ease-out-expo),
+                visibility 0s linear 0.15s;
 }
 
 .toc:hover .toc-lines {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.15s var(--ease-out-expo), visibility 0s linear 0.15s;
 }
 
 .toc:hover .toc-items {
     opacity: 1;
     visibility: visible;
+    transform: translateX(0);
+    transition: opacity 0.15s var(--ease-out-expo),
+                transform 0.15s var(--ease-out-expo),
+                visibility 0s linear 0s;
 }
 
 .toc-item {
@@ -430,6 +444,7 @@ body.has-scroll .site-footer {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: color 0.2s var(--ease-out-expo);
 }
 
 .toc-item.active {
@@ -496,5 +511,15 @@ body.has-scroll .site-footer {
 
     .toc-container {
         display: none;
+    }
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

@@ -51,9 +51,10 @@
             // Smooth scroll with offset
             link.addEventListener('click', (e) => {
                 e.preventDefault();
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 window.scrollTo({
                     top: heading.offsetTop - 120,
-                    behavior: 'smooth'
+                    behavior: prefersReducedMotion ? 'instant' : 'smooth'
                 });
                 setTimeout(() => history.pushState(null, '', `#${heading.id}`), 100);
             });
