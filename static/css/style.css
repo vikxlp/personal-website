@@ -291,6 +291,20 @@ main {
     margin: 1rem 0;
 }
 
+/* Credits/Notes section — hr followed by italic note */
+.content hr {
+    display: none;
+}
+
+.content hr + p {
+    margin-top: 4rem;
+    color: var(--color-text-light);
+}
+
+.content hr + p a {
+    color: var(--color-accent);
+}
+
 
 /* Footer */
 .site-footer {

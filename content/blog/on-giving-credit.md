@@ -30,5 +30,4 @@ One doesn't become a leader with the position. It's about how you behave with yo
 
 ---
 
-
-*A big credit goes to [Sidika](https://www.sidikasehgal.com/) in helping me articulate my thoughts, guide me through her writing process and reading the draft of this article.*
+*Huge credit goes to [Sidika](https://www.linkedin.com/in/sidika-sehgal-5b4b90136/) in helping me articulate my thoughts, guide me through her writing process and reading the draft of this article.*
