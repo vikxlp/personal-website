@@ -102,7 +102,7 @@ body {
 main {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1.5rem 4rem;
+    padding: 0 1.5rem 2rem;
     min-height: calc(100vh - 300px);
 }
 
@@ -299,6 +299,7 @@ main {
 .content hr + p {
     margin-top: 4rem;
     color: var(--color-text-light);
+    font-family: var(--font-serif);
 }
 
 .content hr + p a {
