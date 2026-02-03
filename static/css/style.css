@@ -15,6 +15,7 @@
     --color-text-medium: #414F55;
     --color-text-light: #7D8E95;
     --color-bg: #FAFEFF;
+    --color-bg-card: #F2F5F6;
     --color-accent: #0099FF;
     --color-border: rgba(225, 232, 235, 0.24);
     --color-line: #E1E8EB;
@@ -161,14 +162,27 @@ main {
 }
 
 .post-preview {
-    padding-bottom: 0;
     display: block;
     text-decoration: none;
     color: inherit;
+    position: relative;
+    padding: 1rem 1.5rem;
+    margin: -1rem -1.5rem;
 }
 
-.post-preview:last-child {
-    border-bottom: none;
+.post-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-bg-card);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.2s var(--ease-out-expo);
+    z-index: -1;
+}
+
+.post-preview:hover::before {
+    opacity: 1;
 }
 
 .post-preview h3 {
