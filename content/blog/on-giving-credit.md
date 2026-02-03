@@ -27,3 +27,8 @@ When talking about the work publicly such as a big release or a case study. It's
 It's also a great way to let a team member lead a big announcement. At Apple's conference employees to talk about new features across platforms.
 
 One doesn't become a leader with the position. It's about how you behave with your team too. The habit of regularly bringing your team forward makes you a better leader and a human. Inculcating the culture across the organization is a big win one should strive for.
+
+---
+
+
+*A big credit goes to [Sidika](https://www.sidikasehgal.com/) in helping me articulate my thoughts, guide me through her writing process and reading the draft of this article.*
