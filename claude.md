@@ -84,16 +84,45 @@ Live: https://vikalpgupta.com/
 ## Styling (static/css/style.css)
 
 ### CSS Variables
+
+**Colors**
 ```css
---color-text-primary    /* Main text */
---color-text-secondary  /* Muted text */
---color-text-light      /* Light text */
---color-accent          /* Accent/link color */
---font-sans             /* Sora */
---font-serif            /* Newsreader */
---font-mono             /* SF Mono fallback */
---max-width: 640px      /* Content width */
---spacing: 3rem         /* Section spacing */
+--color-text-primary:   #293A41   /* Headings, active states, links */
+--color-text-secondary: #4D646D   /* Body text, default color */
+--color-text-tertiary:  #889FA9   /* Nav, timestamps, footer, muted labels */
+--color-bg:             #fcfeff   /* Page background */
+--color-bg-card:        rgba(136,159,169,0.08)  /* Hover/card tint */
+```
+
+**Typography scale** (base: 16px)
+```css
+--text-h1:   2.5rem   /* 40px — page titles       | line-height: 1.2 */
+--text-h2:   2rem     /* 32px — section headings  | line-height: 1.2 */
+--text-h3:   1.5rem   /* 24px — sub-headings      | line-height: 1.5 */
+--text-body: 1.125rem /* 18px — body / intro      | line-height: 1.6 */
+--text-md:   1rem     /* 16px — nav, link buttons */
+--text-sm:   0.875rem /* 14px — timestamps, footer | line-height: 1.4 */
+--text-toc:  0.75rem  /* 12px — TOC items */
+```
+Mobile overrides (≤768px): `--text-h1: 2rem` · `--text-h3: 1.25rem`
+
+**Heading visual style**
+| Level | Variable | Size | Weight | Color | Line-height |
+|---|---|---|---|---|---|
+| Page title (`h1`) | `--text-h1` | 40px / 32px mobile | 400 | `text-primary` | 1.2 |
+| Section heading (`h2`) | `--text-h2` | 32px | 400 | `text-primary` | 1.2 |
+| Sub-heading (`h3`) | `--text-h3` | 24px / 20px mobile | 400 | `text-primary` | 1.5 |
+| Body / intro | `--text-body` | 18px | 300–400 | `text-secondary` | 1.6 |
+| Nav / buttons | `--text-md` | 16px | 300–400 | `text-tertiary` | — |
+| Timestamps / footer | `--text-sm` | 14px | 300 | `text-tertiary` | 1.4 |
+
+**Fonts & layout**
+```css
+--font-sans    /* Sora */
+--font-serif   /* Newsreader */
+--font-mono    /* SF Mono fallback */
+--max-width: 640px   /* Content width */
+--spacing: 3rem      /* Section spacing */
 ```
 
 ### Naming Convention
@@ -257,3 +286,35 @@ Push to `main` branch — Netlify auto-builds and deploys.
 - Commit messages: imperative mood, concise summary of change
 - Recent examples: "Clean up codebase and update site content", "Add table of contents component for blog posts"
 - Branch: `main` is the production branch
+
+---
+
+## Workspace Structure
+
+This repo uses **git worktrees** — multiple branches checked out as sibling folders under a shared container.
+
+```
+Personal Website/              ← container (not a git repo)
+├── WORKSPACE.md               ← full workspace guide for humans and agents
+├── main/                      ← you are here — main branch, production code
+└── feature-digitalpostcard/   ← snacknews branch, digital postcard feature
+```
+
+Each worktree is a separate folder with its own Claude Code session. Do not switch branches inside a worktree — use the sibling folders instead.
+
+**Before starting any new feature or change:**
+1. Pull latest main first: `git pull origin main`
+2. Wait for the user to confirm a new worktree is needed before creating one
+3. Open the relevant worktree folder in a new VSCode window
+4. Start Claude Code from that folder: `cd ../feature-name && claude`
+
+**Adding a new worktree (only when explicitly requested by the user):**
+```bash
+git worktree add ../my-feature-name -b my-branch-name
+```
+
+**Naming convention:** folder name = descriptive feature name, not the branch name.
+
+**Agent rule:** Do NOT create a new worktree or branch proactively. Wait until the user explicitly asks for one.
+
+See `../WORKSPACE.md` for the full reference including cleanup steps.
