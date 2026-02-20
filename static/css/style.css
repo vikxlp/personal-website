@@ -15,6 +15,7 @@
     --color-text-tertiary: #889FA9;
     --color-bg: #fcfeff;
     --color-bg-card: rgba(136, 159, 169, 0.08);
+    --color-highlight: #4DCAFF;
     --font-sans: Sora, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-serif: Newsreader, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, Georgia, serif;
     --font-mono: 'SF Mono', Menlo, Monaco, 'Courier New', Courier, monospace;
@@ -43,6 +44,18 @@ body {
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-text-tertiary);
+    transition: text-decoration-color 0.2s var(--ease-out-expo);
+}
+
+a:hover {
+    text-decoration-color: var(--color-highlight);
 }
 
 /* Header */
@@ -193,7 +206,7 @@ main {
     font-size: var(--text-h3);
     font-weight: 400;
     line-height: 1.5;
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     transition: color 0.15s var(--ease-out-expo);
 }
 
@@ -260,18 +273,6 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.content a {
-    color: var(--color-text-primary);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-color: transparent;
-    transition: text-decoration-color 0.2s var(--ease-out-expo);
-}
-
-.content a:hover {
-    text-decoration-color: var(--color-text-primary);
-}
-
 .content ul,
 .content ol {
     margin-bottom: 1rem;
@@ -321,11 +322,6 @@ main {
     font-family: var(--font-serif);
 }
 
-.content hr + p a {
-    color: var(--color-text-primary);
-}
-
-
 /* Footer */
 .site-footer {
     position: fixed;
@@ -352,46 +348,51 @@ body.has-scroll .site-footer {
     line-height: 1.43;
 }
 
-/* Link Buttons — base component for styled link rows */
-.link-buttons {
+/* Buttons — base component for styled link rows */
+.buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-.link-buttons a {
-    color: var(--color-text-tertiary);
+.buttons a {
+    color: var(--color-text-secondary);
     text-decoration: none;
     font-size: var(--text-md);
     font-weight: 400;
     font-family: var(--font-sans);
     transition: color 0.15s var(--ease-out-expo), transform 0.15s var(--ease-out-expo);
     position: relative;
+    padding: 0.1rem 0.5rem;
+    margin: -0.1rem -0.5rem;
 }
 
-.link-buttons a:hover {
+.buttons a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-bg-card);
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.2s var(--ease-out-expo);
+    z-index: -1;
+}
+
+.buttons a:hover {
     color: var(--color-text-primary);
 }
 
-.link-buttons a:active {
+.buttons a:hover::before {
+    opacity: 1;
+}
+
+.buttons a:active {
     transform: scale(0.97);
 }
 
-/* Social Links — link-buttons variant with underline animation */
+/* Social Links — buttons variant */
 .social-links {
     margin-top: 0;
-}
-
-.social-links a {
-    font-style: normal;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-color: transparent;
-    transition: text-decoration-color 0.2s var(--ease-out-expo);
-}
-
-.social-links a:hover {
-    text-decoration-color: var(--color-text-primary);
 }
 
 /* Table of Contents */
