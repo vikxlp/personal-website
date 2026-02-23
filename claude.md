@@ -132,6 +132,8 @@ Component-scoped classes, BEM-adjacent: `site-header`, `post-preview`, `toc-cont
 - `html { scroll-padding-top }` for anchor offset
 - Footer positioning: fixed when page is short, static when tall (JS scroll detection in baseof.html)
 - Smooth scroll enabled globally
+- `hr` elements are hidden globally via `.content hr { display: none }`. Do not show them unless explicitly planned and scoped to a specific page type.
+- Footer can be suppressed per-page by checking `.Type` in baseof.html: `{{ if ne .Type "resume" }}{{ partial "footer.html" . }}{{ end }}`. The page front matter must declare `type: resume`.
 
 ---
 

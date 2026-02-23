@@ -1,0 +1,13 @@
+{{ define "main" }}
+<article class="resume single">
+    <header class="resume-header">
+        <h1>{{ .Title }}</h1>
+        <div class="buttons">
+            <a href="/resume.pdf" download>Download PDF</a>
+        </div>
+    </header>
+    <div class="content">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}
