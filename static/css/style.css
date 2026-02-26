@@ -27,7 +27,6 @@
     --text-body: 1.125rem;  /* 18px */
     --text-md:   1rem;      /* 16px */
     --text-sm:   0.875rem;  /* 14px */
-    --text-toc:  0.75rem;   /* 12px */
 }
 
 html {
@@ -517,7 +516,7 @@ body.has-scroll .site-footer {
 .toc-item {
     font-family: var(--font-sans);
     font-weight: 400;
-    font-size: var(--text-toc);
+    font-size: var(--text-sm);
     line-height: 20px;
     color: var(--color-text-tertiary);
     text-decoration: none;
