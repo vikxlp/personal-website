@@ -162,7 +162,7 @@ hugo server -D
 # Visit http://localhost:1313/postcards/index.xml  → RSS feed
 ```
 
-**Note:** Drafts are excluded from RSS even with `-D`. Set `draft: false` to test the RSS feed locally. Image URLs in the RSS will use `http://localhost:1313/` when served locally — they switch to the production domain on deploy.
+**Note:** Drafts are excluded from RSS even with `-D`. Set `draft: false` to test the RSS feed locally. Image URLs in the RSS will use `http://localhost:1313/` when served locally — they switch to the production domain on deploy. RSS readers (including Reeder) will load the feed from localhost but **images won't render** — profile picture and cover image appear blank because readers sandbox localhost image requests. To test images in a reader, either push to production or use `ngrok http 1313` to get a public HTTPS URL.
 
 ### 5. Publish
 ```bash
