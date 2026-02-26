@@ -37,7 +37,7 @@ html {
 
 body {
     font-family: var(--font-sans);
-    line-height: 1.7;
+    line-height: 1.5;
     color: var(--color-text-secondary);
     background: var(--color-bg);
     font-size: 16px;
@@ -119,7 +119,7 @@ a:hover {
 main {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1.5rem 2rem;
+    padding-bottom: 2rem;
     min-height: calc(100vh - 300px);
 }
 
@@ -147,7 +147,7 @@ main {
 .intro {
     margin: 0 0 3rem;
     font-size: var(--text-body);
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--color-text-secondary);
     font-weight: 300;
 }
@@ -243,6 +243,7 @@ main {
 
 .single time {
     display: block;
+    margin-bottom: .25rem;
     color: var(--color-text-tertiary);
     font-size: var(--text-sm);
     font-weight: 300;
@@ -291,7 +292,8 @@ main {
 }
 
 .content {
-    line-height: 1.6;
+    line-height: 1.5;
+    letter-spacing: -1%;
     color: var(--color-text-secondary);
     font-size: var(--text-body);
 }
@@ -316,7 +318,7 @@ main {
 }
 
 .content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .content ul,
@@ -391,7 +393,7 @@ body.has-scroll .site-footer {
 
 .site-footer p {
     margin-bottom: 0;
-    line-height: 1.43;
+    line-height: 1.5;
 }
 
 /* Buttons — base component for styled link rows */
@@ -656,7 +658,7 @@ body.has-scroll .site-footer {
     }
 
     main {
-        padding: 0 1.5rem 3rem;
+        padding: 0 1rem 3rem;
     }
 
     .site-header {
@@ -687,8 +689,8 @@ body.has-scroll .site-footer {
     }
 
     .postcard-cover {
-        margin: 0 -1rem 1rem;
-        width: calc(100% + 2rem);
+        margin: 0 -0.5rem 1rem;
+        width: calc(100% + 1rem);
     }
 
     .postcard-cover img {
