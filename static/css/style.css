@@ -412,8 +412,8 @@ body.has-scroll .site-footer {
     font-family: var(--font-sans);
     transition: color 0.15s var(--ease-out-expo), transform 0.15s var(--ease-out-expo);
     position: relative;
-    padding: 0.1rem 0.5rem;
-    margin: -0.1rem -0.5rem;
+    padding: 0.2rem 0.625rem;
+    margin: -0.2rem -0.625rem;
 }
 
 .buttons a::before {
