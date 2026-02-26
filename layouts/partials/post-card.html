@@ -1,4 +1,4 @@
-<a href="{{ .Page.Permalink }}" class="post-preview">
+<a href="{{ .Page.RelPermalink }}" class="post-preview">
     <time datetime="{{ .Page.Date.Format "2006-01-02" }}">{{ .Page.Date.Format "2 January 2006" }}</time>
     {{ if ne .showTitle false }}
     <h3>{{ .Page.Title }}</h3>
