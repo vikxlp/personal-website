@@ -48,8 +48,9 @@ body {
 a {
     color: inherit;
     text-decoration: underline;
+    text-decoration-thickness: 2px;
     text-underline-offset: 3px;
-    text-decoration-color: var(--color-text-tertiary);
+    text-decoration-color: color-mix(in srgb, var(--color-text-tertiary) 50%, transparent);
     transition: text-decoration-color 0.2s var(--ease-out-expo);
 }
 
