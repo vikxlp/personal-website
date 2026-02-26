@@ -646,10 +646,6 @@ body.has-scroll .site-footer {
     border-color: var(--color-line-dark);
 }
 
-.recent-postcard {
-    margin-top: 4rem;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     :root {
