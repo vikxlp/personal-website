@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="single single--postcard">
+    {{ if .Params.cover }}
+    <figure class="postcard-cover">
+        <img src="{{ .Params.cover }}"
+             alt="{{ .Params.coverAlt | default "" }}"
+             loading="lazy">
+        {{ if .Params.coverCaption }}
+        <figcaption>{{ .Params.coverCaption }}</figcaption>
+        {{ end }}
+    </figure>
+    {{ end }}
+    <header>
+        {{ partial "post-meta.html" (dict "Date" .Date) }}
+        <h1 class="postcard-title">{{ .Title }}</h1>
+    </header>
+    <div class="content">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}

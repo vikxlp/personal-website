@@ -16,6 +16,15 @@ Live: https://vikalpgupta.com/
 
 ---
 
+## Working Rules
+
+- **CSS stays in CSS** — For styling/visual changes, only modify `static/css/style.css`. Never touch content files or templates unless explicitly asked.
+- **Act, don't suggest** — Use available CLI tools (`hugo`, `gh`, `npm`, etc.) directly. Assume standard dev tooling is installed and authenticated.
+- **Verify visuals** — After CSS or layout changes, take a screenshot using Chrome DevTools MCP to confirm the result before reporting completion.
+- **Verify builds** — After modifying site files (templates, CSS, content, `hugo.toml`), run `hugo --gc --minify` to catch errors before reporting completion.
+
+---
+
 ## Tech Stack
 
 | Layer       | Tool                  |

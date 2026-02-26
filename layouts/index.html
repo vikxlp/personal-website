@@ -18,5 +18,17 @@
             {{ end }}
         </div>
     </section>
+
+    {{ $postcard := where .Site.RegularPages "Section" "postcards" }}
+    {{ if $postcard }}
+    <section class="recent-postcard">
+        <h2>Postcards</h2>
+        <div class="post-list">
+            {{ range first 5 $postcard }}
+            {{ partial "post-card.html" (dict "Page" . "showSummary" false "showTitle" false) }}
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
 </div>
 {{ end }}

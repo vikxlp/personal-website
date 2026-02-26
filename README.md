@@ -103,8 +103,8 @@ To use your custom domain `vikalpgupta.com`:
 ├── archetypes/          # Content templates
 ├── content/             # All content (Markdown files)
 │   ├── blog/           # Blog posts
-│   ├── photography/    # Photography page
-│   └── gear.md         # Gear/tools page
+│   ├── postcard/       # Postcard page
+│   └── gear.md         # Gear/tools page (in future)
 ├── layouts/            # HTML templates
 │   ├── _default/       # Default templates
 │   └── partials/       # Reusable components

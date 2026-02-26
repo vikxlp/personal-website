@@ -8,6 +8,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="/images/mark.svg" type="image/svg+xml">
+    {{ if eq .Section "postcards" }}<link rel="apple-touch-icon" href="/images/profile.png">{{ end }}
 
     <!-- Preconnect to font origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,10 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
+
+    {{ if eq .Section "postcards" }}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Postcards" href="{{ "/postcards/index.xml" | absURL }}">
+    {{ end }}
 
     <!-- Async font loading: preload + swap to avoid render-blocking -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&family=Newsreader:ital,wght@0,400;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -25,7 +30,7 @@
     <main>
         {{ block "main" . }}{{ end }}
     </main>
-    {{ if ne .Type "resume" }}{{ partial "footer.html" . }}{{ end }}
+    {{ if and (ne .Type "resume") (not (and (eq .Section "postcards") (eq .Kind "page"))) }}{{ partial "footer.html" . }}{{ end }}
 
     <script>
         (function() {

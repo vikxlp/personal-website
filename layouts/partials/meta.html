@@ -1,4 +1,13 @@
-{{- $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) -}}
+{{- $title := "" -}}
+{{- if .IsHome -}}
+  {{- $title = .Site.Title -}}
+{{- else if and (eq .Section "postcards") (eq .Kind "section") -}}
+  {{- $title = "Postcards from Vikalp" -}}
+{{- else if eq .Section "postcards" -}}
+  {{- $title = printf "%s | Postcards from Vikalp" .Title -}}
+{{- else -}}
+  {{- $title = printf "%s | %s" .Title .Site.Title -}}
+{{- end -}}
 {{- $description := cond .Description .Description .Site.Params.description -}}
 
 <title>{{ $title }}</title>

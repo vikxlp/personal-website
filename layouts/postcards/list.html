@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="list">
+    <header>
+        <h1>{{ .Title }}</h1>
+    </header>
+    <div class="postcard-subscribe">
+        <form action="https://buttondown.email/api/emails/embed-subscribe/vikalp" method="post" target="_blank" class="subscribe-form">
+            <input type="email" name="email" placeholder="your@email.com" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <div class="feed-links">
+            <a href="/postcards/index.xml" class="feed-link">RSS</a>
+        </div>
+    </div>
+    <div class="post-list">
+        {{ range .Pages }}
+        {{ partial "post-card.html" (dict "Page" . "showSummary" false "showTitle" false) }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}
