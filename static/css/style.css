@@ -49,7 +49,7 @@ body {
 a {
     color: inherit;
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
     text-decoration-color: var(--color-text-tertiary);
     transition: text-decoration-color 0.2s var(--ease-out-expo);
 }
