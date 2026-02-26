@@ -16,6 +16,16 @@
 [context.branch-deploy]
   command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 302
+
+[[redirects]]
+  from = "/postcards/*"
+  to = "/"
+  status = 302
+
 [[headers]]
   for = "/*"
   [headers.values]
