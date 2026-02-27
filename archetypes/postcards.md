@@ -14,4 +14,5 @@ Write your postcard here...
 links
 
 ---
-*Message/email me with things you like to share or just say Hi.*
+
+*Anything new, an update, or a story to tell. I’d love to hear from you. Message me or [send an email](a href=mailto:contact@vikalpgupta.com).*
