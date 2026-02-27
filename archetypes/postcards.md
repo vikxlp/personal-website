@@ -15,4 +15,4 @@ links
 
 ---
 
-*Anything new, an update, or a story to tell. I’d love to hear from you. Message me or [send an email](a href=mailto:contact@vikalpgupta.com).*
+*Anything new, an update, or a story to tell. I’d love to hear from you. Message me or [send an email](mailto:me@vikalpgupta.com).*
