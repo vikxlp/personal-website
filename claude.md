@@ -22,6 +22,8 @@ Live: https://vikalpgupta.com/
 - **Act, don't suggest** — Use available CLI tools (`hugo`, `gh`, `npm`, etc.) directly. Assume standard dev tooling is installed and authenticated.
 - **Verify visuals** — After CSS or layout changes, take a screenshot using Chrome DevTools MCP to confirm the result before reporting completion.
 - **Verify builds** — After modifying site files (templates, CSS, content, `hugo.toml`), run `hugo --gc --minify` to catch errors before reporting completion.
+- **Check before starting servers** — Before running `hugo server` or using Chrome DevTools MCP, check if an instance is already running (`lsof -i :1313` for Hugo; `mcp__chrome-devtools__list_pages` for Chrome). Reuse the existing instance instead of starting a new one.
+- **Commit message after plan execution** — After successfully executing a plan (build passes, screenshots verified), suggest a concise commit message in imperative mood summarising what changed.
 
 ---
 
