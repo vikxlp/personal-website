@@ -30,6 +30,107 @@
     --text-sm:   0.875rem;  /* 14px */
 }
 
+/* ============================================================
+   Text Style Tokens
+   Each token (.ts-*) is the single source of truth for a role.
+   Add new selectors to the group instead of duplicating values.
+   ============================================================ */
+
+/* ts-h1: Single-post page titles */
+.ts-h1, .single h1 {
+    font-size: var(--text-h1);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    color: var(--color-text-primary);
+}
+
+/* ts-h2: Content section headings */
+.ts-h2, .content h2 {
+    font-size: var(--text-h2);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    color: var(--color-text-primary);
+}
+
+/* ts-h3: Content sub-headings */
+.ts-h3, .content h3 {
+    font-size: var(--text-h3);
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--color-text-primary);
+}
+
+/* ts-body: Body paragraphs and intro */
+.ts-body, .content p, .intro {
+    font-size: var(--text-body);
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+}
+
+/* ts-nav: Navigation links */
+.ts-nav, .nav-menu a {
+    font-size: var(--text-md);
+    line-height: 1;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: var(--color-text-tertiary);
+}
+.ts-nav:hover, .ts-nav.active,
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--color-text-secondary);
+}
+
+/* ts-sm: Small text — timestamps, metadata, TOC items */
+.ts-sm, .post-preview time, .single time, .toc-item {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+}
+
+/* ts-caption: Serif italic small text — figure captions and site footer */
+.ts-caption, .content figcaption, .postcard-cover figcaption, .site-footer {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 300;
+    font-style: italic;
+    font-family: var(--font-serif);
+    color: var(--color-text-tertiary);
+}
+
+/* ts-btn: Styled link buttons */
+.ts-btn, .buttons a {
+    font-size: var(--text-md);
+    line-height: 1;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-family: var(--font-sans);
+    color: var(--color-text-secondary);
+}
+.ts-btn:hover, .buttons a:hover {
+    color: var(--color-text-primary);
+}
+
+/* ts-link: Inline hyperlinks */
+.ts-link, a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, var(--color-text-tertiary) 50%, transparent);
+    transition: text-decoration-color 0.2s var(--ease-out-expo);
+}
+.ts-link:hover, a:hover {
+    text-decoration-color: var(--color-highlight);
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
@@ -44,19 +145,6 @@ body {
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-    text-decoration-color: color-mix(in srgb, var(--color-text-tertiary) 50%, transparent);
-    transition: text-decoration-color 0.2s var(--ease-out-expo);
-}
-
-a:hover {
-    text-decoration-color: var(--color-highlight);
 }
 
 /* Header */
@@ -105,15 +193,7 @@ a:hover {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--color-text-tertiary);
-    font-size: var(--text-md);
-    font-weight: 300;
     transition: color 0.15s var(--ease-out-expo);
-}
-
-.nav-menu a:hover,
-.nav-menu a.active {
-    color: var(--color-text-secondary);
 }
 
 /* Main Content */
@@ -147,10 +227,6 @@ main {
 
 .intro {
     margin: 0 0 3rem;
-    font-size: var(--text-body);
-    line-height: 1.5;
-    color: var(--color-text-secondary);
-    font-weight: 300;
 }
 
 .intro p {
@@ -217,10 +293,7 @@ main {
 
 .post-preview time {
     display: block;
-    font-size: var(--text-sm);
-    color: var(--color-text-tertiary);
     margin-bottom: 0.1rem;
-    font-weight: 300;
 }
 
 
@@ -234,20 +307,12 @@ main {
 }
 
 .single h1 {
-    font-size: var(--text-h1);
     margin-bottom: 1rem;
-    font-weight: 400;
-    color: var(--color-text-primary);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
 }
 
 .single time {
     display: block;
     margin-bottom: .25rem;
-    color: var(--color-text-tertiary);
-    font-size: var(--text-sm);
-    font-weight: 300;
 }
 
 /* Resume page */
@@ -302,20 +367,11 @@ main {
 .content h2 {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    font-size: var(--text-h2);
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--color-text-primary);
-    letter-spacing: -0.01em;
 }
 
 .content h3 {
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-size: var(--text-h3);
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--color-text-primary);
 }
 
 .content p {
@@ -377,11 +433,6 @@ main {
     bottom: 1rem;
     right: 1rem;
     text-align: left;
-    color: var(--color-text-tertiary);
-    font-size: var(--text-sm);
-    font-weight: 400;
-    font-style: italic;
-    font-family: var(--font-serif);
     width: 144px;
     z-index: 10;
 }
@@ -394,7 +445,6 @@ body.has-scroll .site-footer {
 
 .site-footer p {
     margin-bottom: 0;
-    line-height: 1.5;
 }
 
 /* Buttons — base component for styled link rows */
@@ -405,11 +455,7 @@ body.has-scroll .site-footer {
 }
 
 .buttons a {
-    color: var(--color-text-secondary);
     text-decoration: none;
-    font-size: var(--text-md);
-    font-weight: 400;
-    font-family: var(--font-sans);
     transition: color 0.15s var(--ease-out-expo), transform 0.15s var(--ease-out-expo);
     position: relative;
     padding: 0.2rem 0.625rem;
@@ -425,10 +471,6 @@ body.has-scroll .site-footer {
     opacity: 0;
     transition: opacity 0.2s var(--ease-out-expo);
     z-index: -1;
-}
-
-.buttons a:hover {
-    color: var(--color-text-primary);
 }
 
 .buttons a:hover::before {
@@ -516,11 +558,6 @@ body.has-scroll .site-footer {
 }
 
 .toc-item {
-    font-family: var(--font-sans);
-    font-weight: 400;
-    font-size: var(--text-sm);
-    line-height: 20px;
-    color: var(--color-text-tertiary);
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
@@ -546,12 +583,7 @@ body.has-scroll .site-footer {
 }
 
 .content figcaption {
-    font-size: 0.875rem;
-    color: var(--color-text-tertiary);
-    font-style: italic;
-    font-family: var(--font-serif);
     margin-top: 0.5rem;
-    line-height: 1.5;
 }
 
 /* Postcard Single Page — Cover Image */
@@ -569,10 +601,6 @@ body.has-scroll .site-footer {
 }
 
 .postcard-cover figcaption {
-    font-size: 0.75rem;
-    color: var(--color-text-tertiary);
-    font-style: italic;
-    font-family: var(--font-serif);
     text-align: center;
     margin-top: 0.5rem;
 }
