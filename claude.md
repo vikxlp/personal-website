@@ -1,333 +1,168 @@
 # Claude Code Context — vikalpgupta.com
 
-Personal website of Vikalp Gupta, a digital product designer. Built with Hugo, deployed on Netlify, served through Cloudflare.
+Personal website of Vikalp Gupta, a digital product designer. Hugo + Netlify + Cloudflare.
 
-Live: https://vikalpgupta.com/
+Live: <https://vikalpgupta.com/>
 
 ---
 
 ## Design Principles
 
-- **Lightweight & fast** — Total build output ~100K. Minimal, necessary, and light frameworks only when justified. High Lighthouse scores are a hard requirement.
-- **Progressive enhancement** — Core content works without JavaScript. JS only enhances (e.g., Table of Contents).
+- **Lightweight & fast** — Total build output ~100K. High Lighthouse scores (85+) are a hard requirement.
+- **Progressive enhancement** — Core content works without JS. JS enhances only (e.g., ToC).
 - **Semantic HTML5** — Proper heading hierarchy, landmarks, meta tags for SEO and social sharing.
-- **Mobile-first responsive** — Base styles work everywhere; 768px breakpoint for desktop enhancements.
-- **Minimal by design** — Every byte must earn its place. No unnecessary dependencies, fonts kept minimal, SVG preferred for graphics.
+- **Mobile-first** — Base styles work everywhere; 768px breakpoint for desktop.
+- **Minimal by design** — Every byte must earn its place. SVG preferred for graphics.
 
 ---
 
 ## Working Rules
 
-- **CSS stays in CSS** — For styling/visual changes, only modify `static/css/style.css`. Never touch content files or templates unless explicitly asked.
-- **Act, don't suggest** — Use available CLI tools (`hugo`, `gh`, `npm`, etc.) directly. Assume standard dev tooling is installed and authenticated.
-- **Verify visuals** — After CSS or layout changes, take a screenshot using Chrome DevTools MCP to confirm the result before reporting completion.
-- **Verify builds** — After modifying site files (templates, CSS, content, `hugo.toml`), run `hugo --gc --minify` to catch errors before reporting completion.
-- **Check before starting servers** — Before running `hugo server` or using Chrome DevTools MCP, check if an instance is already running (`lsof -i :1313` for Hugo; `mcp__chrome-devtools__list_pages` for Chrome). Reuse the existing instance instead of starting a new one.
-- **Commit message after plan execution** — After successfully executing a plan (build passes, screenshots verified), suggest a concise commit message in imperative mood summarising what changed.
+- **CSS stays in CSS** — Styling changes: `static/css/style.css` only.
+- **Act, don't suggest** — Use CLI tools directly. Standard dev tooling assumed.
+- **Verify visuals** — After CSS/layout changes, screenshot via Chrome DevTools MCP.
+- **Verify builds** — After any site file changes, run `hugo --gc --minify`.
+- **Check before starting servers** — `lsof -i :1313` (Hugo); `mcp__chrome-devtools__list_pages` (Chrome). Reuse existing instances.
+- **Commit message after plan** — Suggest imperative-mood commit after successful plan execution.
 
 ---
 
 ## Tech Stack
 
-| Layer       | Tool                  |
-|-------------|-----------------------|
-| Generator   | Hugo 0.139.3          |
-| Hosting     | Netlify               |
-| CDN/DNS     | Cloudflare            |
-| CSS         | Vanilla CSS (variables, no preprocessor) |
-| JavaScript  | Vanilla JS (light frameworks when justified) |
-| Fonts       | Google Fonts (Sora, Newsreader)          |
+| Layer | Tool |
+| --- | --- |
+| Generator | Hugo 0.139.3 |
+| Hosting | Netlify |
+| CDN/DNS | Cloudflare |
+| CSS | Vanilla CSS (variables, no preprocessor) |
+| JavaScript | Vanilla JS |
+| Fonts | Sora, Newsreader (Google Fonts) |
+
+---
+
+## Key Files
+
+| File | Description |
+| --- | --- |
+| `CLAUDE.md` | Agent + human context — you are here |
+| `README.md` | Human-readable project overview |
+| `.docs/infrastructure.md` | Hosting, DNS, CDN, Netlify/Cloudflare setup, request flow |
+| `.docs/postcards.md` | Postcards feature: content model, RSS, Buttondown, workflow |
+| `.docs/components.md` | Hugo partials: post-card, link-buttons, meta, post-meta — usage and params |
+| `.docs/toc.md` | Table of Contents JS component: behaviour, loading, CSS classes |
+| `hugo.toml` | Hugo config: baseURL, menu, socialLinks params |
+| `netlify.toml` | Build command, headers, redirects, deploy previews |
+| `static/css/style.css` | All styles (~8K). Variables, components, responsive breakpoints |
+| `static/js/toc.js` | Table of Contents component (~3.5K). Blog singles only |
+| `layouts/_default/baseof.html` | Base HTML: head, meta, font loading, footer toggle, TOC conditional |
+| `layouts/postcards/` | Postcards-specific layouts and custom RSS feed template |
+| `layouts/resume/single.html` | Resume page; footer suppressed via `type: resume` in front matter |
+| `archetypes/postcards.md` | Postcard front matter template |
+| `new-postcard.sh` | Auto-numbers and creates new postcards |
+| `content/_future_pages/` | Draft future sections (Photography, Gear) — excluded from build |
 
 ---
 
 ## Project Structure
 
-```
-├── archetypes/blog.md        # Template for new blog posts
+```text
+├── archetypes/           # Hugo content templates (blog.md, postcards.md)
 ├── content/
-│   ├── _index.md             # Home page content
-│   └── blog/
-│       ├── _index.md         # Blog listing page
-│       └── *.md              # Individual blog posts
+│   ├── _index.md         # Home page content
+│   ├── resume.md         # CV page (type: resume → footer hidden)
+│   ├── blog/*.md         # Blog posts
+│   ├── postcards/*.md    # Postcards (N-YYYY-MM-DD.md)
+│   └── _future_pages/    # Draft future sections (excluded from build)
 ├── layouts/
-│   ├── _default/
-│   │   ├── baseof.html       # Base template (head, meta, scripts)
-│   │   ├── single.html       # Single post/page template
-│   │   └── list.html         # Section listing template
-│   ├── index.html            # Home page template
-│   └── partials/
-│       ├── header.html       # Site header & navigation
-│       ├── footer.html       # Site footer
-│       ├── post-card.html    # Post preview card component
-│       ├── link-buttons.html # Reusable styled link row
-│       ├── meta.html         # OG & Twitter meta tags
-│       └── post-meta.html    # Post date/time display
+│   ├── index.html        # Home page template
+│   ├── _default/         # baseof.html, single.html, list.html
+│   ├── postcards/        # list.html, single.html, rss.xml
+│   ├── resume/           # single.html
+│   └── partials/         # header, footer, post-card, link-buttons, meta, post-meta
 ├── static/
-│   ├── css/style.css         # All styles (~8K)
-│   ├── js/toc.js             # Table of Contents component (~3.5K)
-│   └── images/
-│       ├── mark.svg          # Logo/favicon
-│       └── og-image.png      # Social sharing image
-├── hugo.toml                 # Hugo configuration
-├── netlify.toml              # Netlify build & deploy config
-└── README.md                 # Human-readable project docs
+│   ├── css/style.css     # All styles
+│   ├── js/toc.js         # Table of Contents component
+│   └── images/           # mark.svg, og-image.png, profile.png, postcards/
+├── hugo.toml             # Hugo config
+├── netlify.toml          # Build, deploy, headers, redirects
+└── new-postcard.sh       # Postcard creation script
 ```
 
 ---
 
-## Configuration
-
-### hugo.toml
-- `baseURL`: https://vikalpgupta.com/
-- `title`: "Vikalp, Designer"
-- `markup.goldmark.renderer.unsafe`: true (allows raw HTML in Markdown)
-- Menu: "Writing" → /blog/
-- Outputs: HTML + RSS for home, HTML for sections
-
-### netlify.toml
-- **Build command**: `hugo --gc --minify` (garbage collect + minify)
-- **Security headers**: X-Frame-Options DENY, XSS protection, nosniff, strict referrer
-- **Cache policy**: 1-year immutable for CSS, JS, and images
-- **Deploy previews**: Include future-dated content with branch URL
-
----
-
-## Styling (static/css/style.css)
-
-### CSS Variables
+## CSS Quick Reference
 
 **Colors**
-```css
---color-text-primary:   #293A41   /* Headings, active states, links */
---color-text-secondary: #4D646D   /* Body text, default color */
---color-text-tertiary:  #889FA9   /* Nav, timestamps, footer, muted labels */
---color-bg:             #fcfeff   /* Page background */
---color-bg-card:        rgba(136,159,169,0.08)  /* Hover/card tint */
-```
 
-**Typography scale** (base: 16px)
-```css
---text-h1:   2.5rem   /* 40px — page titles       | line-height: 1.2 */
---text-h2:   2rem     /* 32px — section headings  | line-height: 1.2 */
---text-h3:   1.5rem   /* 24px — sub-headings      | line-height: 1.5 */
---text-body: 1.125rem /* 18px — body / intro      | line-height: 1.6 */
---text-md:   1rem     /* 16px — nav, link buttons */
---text-sm:   0.875rem /* 14px — timestamps, footer | line-height: 1.4 */
---text-toc:  0.75rem  /* 12px — TOC items */
-```
-Mobile overrides (≤768px): `--text-h1: 2rem` · `--text-h3: 1.25rem`
+- `--color-text-primary: #293A41` — headings, links
+- `--color-text-secondary: #4D646D` — body text
+- `--color-text-tertiary: #889FA9` — nav, timestamps, muted
+- `--color-bg: #fcfeff` — page background
+- `--color-bg-card: rgba(136,159,169,0.08)` — hover/card tint
 
-**Heading visual style**
-| Level | Variable | Size | Weight | Color | Line-height |
-|---|---|---|---|---|---|
-| Page title (`h1`) | `--text-h1` | 40px / 32px mobile | 400 | `text-primary` | 1.2 |
-| Section heading (`h2`) | `--text-h2` | 32px | 400 | `text-primary` | 1.2 |
-| Sub-heading (`h3`) | `--text-h3` | 24px / 20px mobile | 400 | `text-primary` | 1.5 |
-| Body / intro | `--text-body` | 18px | 300–400 | `text-secondary` | 1.6 |
-| Nav / buttons | `--text-md` | 16px | 300–400 | `text-tertiary` | — |
-| Timestamps / footer | `--text-sm` | 14px | 300 | `text-tertiary` | 1.4 |
+**Typography** (base 16px): `--text-h1` 40px · `--text-h2` 32px · `--text-h3` 24px · `--text-body` 18px · `--text-md` 16px · `--text-sm` 14px · `--text-toc` 12px. Mobile overrides: h1→32px, h3→20px.
 
-**Fonts & layout**
-```css
---font-sans    /* Sora */
---font-serif   /* Newsreader */
---font-mono    /* SF Mono fallback */
---max-width: 640px   /* Content width */
---spacing: 3rem      /* Section spacing */
-```
+**Layout:** `--max-width: 640px` · `--spacing: 3rem` · fonts: `--font-sans` (Sora), `--font-serif` (Newsreader)
 
-### Naming Convention
-Component-scoped classes, BEM-adjacent: `site-header`, `post-preview`, `toc-container`, `link-buttons`, `social-links`.
-
-### Key Patterns
-- `html { scroll-padding-top }` for anchor offset
-- Footer positioning: fixed when page is short, static when tall (JS scroll detection in baseof.html)
-- Smooth scroll enabled globally
-- `hr` elements are hidden globally via `.content hr { display: none }`. Do not show them unless explicitly planned and scoped to a specific page type.
-- Footer can be suppressed per-page by checking `.Type` in baseof.html: `{{ if ne .Type "resume" }}{{ partial "footer.html" . }}{{ end }}`. The page front matter must declare `type: resume`.
-
----
-
-## Components
-
-Reusable Hugo partials and JS modules. When adding UI that appears in multiple templates, create a partial instead of duplicating markup.
-
-### `partials/post-card.html`
-Post preview card used on home page and blog listing.
-
-**Parameters (via `dict`):**
-- `.Page` — page context (required)
-- `.showSummary` — `true` to show summary text, `false` for compact view
-
-**Usage:** `{{ partial "post-card.html" (dict "Page" . "showSummary" false) }}`
-
-**CSS:** `.post-preview`, `.post-preview h3`, `.post-preview time`
-
-### `partials/link-buttons.html`
-Styled row of links. Base component for social links, nav menus, or any horizontal link group.
-
-**Parameters (via `dict`):**
-- `.links` — array of objects with `name` and `url` fields (from `hugo.toml` params or menus)
-- `.class` — CSS modifier class (e.g., `"social-links"` for underline animation variant)
-
-**Usage:** `{{ partial "link-buttons.html" (dict "links" .Site.Params.socialLinks "class" "social-links") }}`
-
-**CSS:** `.link-buttons` (base), `.social-links` (modifier with underline animation)
-
-**Config:** Social links are defined in `hugo.toml` under `[[params.socialLinks]]` with `name` and `url` fields.
-
-### `partials/meta.html`
-Open Graph and Twitter meta tags. Receives the full page context and computes title/description.
-
-**Usage:** `{{ partial "meta.html" . }}`
-
-### `partials/post-meta.html`
-Post date/time display element.
-
-**Parameters (via `dict`):**
-- `.Date` — the page date
-
-**Usage:** `{{ partial "post-meta.html" (dict "Date" .Date) }}`
-
-### Table of Contents (`static/js/toc.js`)
-JS-generated navigation for blog posts. Not a Hugo partial — all HTML is created dynamically from h2 headings.
-
-- Loaded conditionally on blog section pages via `baseof.html`
-- CSS: `.toc-container`, `.toc`, `.toc-lines`, `.toc-items`, `.toc-item`
-- Hidden on mobile (<768px)
-
----
-
-## JavaScript (static/js/toc.js)
-
-Table of Contents component for blog posts only:
-- Auto-generates from h2 headings
-- Default state: 3 horizontal lines; hover reveals section titles
-- Highlights active section on scroll
-- Fixed position aligned with h1
-- Hidden on mobile (<768px)
-
-**Performance patterns used:**
-- IIFE for scope encapsulation
-- `requestAnimationFrame` throttled scroll handler
-- Passive event listeners
-- Conditionally loaded only on blog single pages (check in baseof.html)
-
----
-
-## Content Model
-
-### Blog Posts
-Front matter:
-```yaml
-title: "Post Title"
-date: YYYY-MM-DD
-draft: true/false
-```
-
-Posts live in `content/blog/`. The archetype at `archetypes/blog.md` auto-generates front matter.
-
-### Future Sections (planned)
-- Photography (`content/_future_pages/photography/`)
-- Gear page (`content/_future_pages/gear.md`)
-
-These exist as drafts in `_future_pages/` and are excluded from builds.
-
----
-
-## Performance Rules
-
-When making changes, these constraints are non-negotiable:
-
-1. **Minimal frameworks only** — prefer vanilla; light frameworks allowed when they clearly justify their weight
-2. **No new external font requests** — use existing Sora + Newsreader
-3. **Lazy load all images** — `loading="lazy"` attribute
-4. **Keep total CSS under 15K uncompressed**
-5. **JS is optional** — site must function fully without it
-6. **Minify in production** — Hugo `--minify` flag handles this
-7. **Semantic HTML** — proper headings, landmarks, ARIA where needed
-8. **New features must not regress Lighthouse scores** (target: 85+ across all categories — run Lighthouse check before pushing)
-9. **Prefer SVG** for icons and graphics
-10. **No render-blocking resources** — defer/async JS, preconnect fonts
+**Naming:** Component-scoped BEM-adjacent — `site-header`, `post-preview`, `toc-container`, `social-links`.
 
 ---
 
 ## Common Tasks
 
-### Run locally
 ```bash
-hugo server -D    # -D includes draft content
+hugo server -D                # local dev (includes drafts)
+hugo new blog/slug.md         # new blog post
+bash new-postcard.sh          # new postcard (auto-numbers)
+hugo --gc --minify            # production build
 ```
 
-### Create a new blog post
-```bash
-hugo new blog/my-post-title.md
-```
-Then edit `content/blog/my-post-title.md`, set `draft: false` when ready.
+**Lighthouse check** (run before pushing):
 
-### Build for production
 ```bash
-hugo --gc --minify
-```
-Output goes to `public/`.
-
-### Run Lighthouse check before pushing
-```bash
-# Build the site, then run Lighthouse and print category scores
-hugo --gc --minify && npx lighthouse http://localhost:1313 --chrome-flags="--headless --no-sandbox" --output=json --quiet | node -e "
+hugo --gc --minify && npx lighthouse http://localhost:1313 \
+  --chrome-flags="--headless --no-sandbox" --output=json --quiet | node -e "
 const data = JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'));
 const cats = data.categories;
-console.log('--- Lighthouse Scores ---');
 Object.keys(cats).forEach(k => {
   const score = Math.round(cats[k].score * 100);
-  const status = score >= 85 ? 'PASS' : 'FAIL';
-  console.log(status + '  ' + cats[k].title + ': ' + score);
+  console.log((score >= 85 ? 'PASS' : 'FAIL') + '  ' + cats[k].title + ': ' + score);
 });
-const allPass = Object.values(cats).every(c => c.score * 100 >= 85);
-process.exit(allPass ? 0 : 1);
+process.exit(Object.values(cats).every(c => c.score * 100 >= 85) ? 0 : 1);
 "
 ```
-All four Lighthouse categories (Performance, Accessibility, Best Practices, SEO) must score **85+** before pushing. Run this after any visual, structural, or asset change. A non-zero exit code means a category failed the threshold.
-
-### Deploy
-Push to `main` branch — Netlify auto-builds and deploys.
 
 ---
 
-## Git Conventions
+## Performance Constraints
 
-- Commit messages: imperative mood, concise summary of change
-- Recent examples: "Clean up codebase and update site content", "Add table of contents component for blog posts"
-- Branch: `main` is the production branch
+1. No new external fonts — use Sora + Newsreader only
+2. Lazy-load all images — `loading="lazy"` attribute
+3. CSS under 15K uncompressed
+4. JS is optional — site must work fully without it
+5. No render-blocking resources — defer/async JS, preconnect fonts
+6. Prefer SVG for icons and graphics
+7. Run Lighthouse (85+ all categories) before pushing
 
 ---
 
-## Workspace Structure
+## Git & Deploy
 
-This repo uses **git worktrees** — multiple branches checked out as sibling folders under a shared container.
+- Commit messages: imperative mood, concise (e.g., "Add postcard 2")
+- Push `main` → Netlify auto-builds and deploys
+- Deploy previews: Netlify builds on PRs with `--buildFuture` flag
 
-```
-Personal Website/              ← container (not a git repo)
-├── WORKSPACE.md               ← full workspace guide for humans and agents
-├── main/                      ← you are here — main branch, production code
-└── feature-digitalpostcard/   ← snacknews branch, digital postcard feature
-```
+---
 
-Each worktree is a separate folder with its own Claude Code session. Do not switch branches inside a worktree — use the sibling folders instead.
+## Workspace
 
-**Before starting any new feature or change:**
-1. Pull latest main first: `git pull origin main`
-2. Wait for the user to confirm a new worktree is needed before creating one
-3. Open the relevant worktree folder in a new VSCode window
-4. Start Claude Code from that folder: `cd ../feature-name && claude`
+Git worktrees — sibling folders under `Personal Website/`:
 
-**Adding a new worktree (only when explicitly requested by the user):**
-```bash
-git worktree add ../my-feature-name -b my-branch-name
+```text
+Personal Website/
+├── WORKSPACE.md              # full workspace guide
+├── main/                     # production (you are here)
+└── feature-*/                # feature branches
 ```
 
-**Naming convention:** folder name = descriptive feature name, not the branch name.
-
-**Agent rule:** Do NOT create a new worktree or branch proactively. Wait until the user explicitly asks for one.
-
-See `../WORKSPACE.md` for the full reference including cleanup steps.
+Do NOT create worktrees/branches proactively. See `../WORKSPACE.md`.
