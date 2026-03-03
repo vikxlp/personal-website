@@ -1,6 +1,107 @@
-# CLAUDE.md — Removed Content Archive
+# Removed Content Archive
 
-Content removed during the CLAUDE.md rewrite. Preserved verbatim for reference.
+Content removed during doc rewrites. Preserved verbatim for reference.
+
+---
+
+## README.md — Removed Sections
+
+### Deploying to Netlify (removed — already configured, not needed for this repo)
+
+#### Option 1: Connect Git Repository (Recommended)
+
+1. Push your code to GitHub/GitLab/Bitbucket
+2. Log in to [Netlify](https://app.netlify.com/)
+3. Click "Add new site" > "Import an existing project"
+4. Connect your repository
+5. Netlify will auto-detect Hugo and use settings from `netlify.toml`
+6. Click "Deploy site"
+
+#### Option 2: Manual Deploy
+
+1. Build the site locally: `hugo --gc --minify`
+2. Log in to [Netlify](https://app.netlify.com/)
+3. Drag and drop the `public/` folder to Netlify
+
+#### Custom Domain
+
+To use your custom domain `vikalpgupta.com`:
+
+1. In Netlify, go to Site settings > Domain management
+2. Click "Add custom domain"
+3. Enter `vikalpgupta.com`
+4. Follow instructions to update DNS records at your domain registrar
+5. Netlify will automatically provision SSL certificate
+
+### Creating Content — Add Photos (removed — photography is a draft future feature)
+
+#### Add Photos
+
+1. Place your images in `static/images/`
+2. Edit `content/photography/_index.md`
+3. Add image references:
+
+```html
+<img src="/images/your-photo.jpg" alt="Description">
+```
+
+### Creating Content — Update Gear Page (removed — gear is a draft future feature)
+
+#### Update Gear Page
+
+Edit `content/gear.md` and add your tools and equipment.
+
+### Customization (removed — generic boilerplate, covered by CLAUDE.md)
+
+#### Site Title and Info
+
+Edit `hugo.toml`:
+
+```toml
+title = 'Your Name'
+[params]
+  description = 'Your description'
+  author = 'Your Name'
+```
+
+#### Styling
+
+Edit `static/css/style.css` to customize colors, fonts, and layout.
+
+#### Navigation
+
+Add or modify menu items in `hugo.toml`:
+
+```toml
+[[menu.main]]
+  name = 'New Page'
+  url = '/new-page/'
+  weight = 4
+```
+
+### Performance (removed — covered by CLAUDE.md)
+
+This site is optimized for speed:
+
+- No JavaScript required
+- Minimal CSS
+- Static HTML generation
+- Asset caching headers configured in `netlify.toml`
+- Minified HTML, CSS in production build
+
+### Support (removed — generic boilerplate)
+
+For Hugo documentation, visit [gohugo.io/documentation](https://gohugo.io/documentation/)
+
+For Netlify documentation, visit [docs.netlify.com](https://docs.netlify.com/)
+
+### License (removed — generic/wrong for a personal website)
+
+This project is open source and available under the MIT License.
+
+---
+
+## CLAUDE.md — Removed Sections
 
 ---
 
