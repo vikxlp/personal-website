@@ -9,7 +9,7 @@ coverCaption: ""
 
 Write your postcard here...
 
-### Heading - Interesting things worth sharing
+H3 - Interesting things worth sharing
 
 links
 
