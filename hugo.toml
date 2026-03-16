@@ -7,10 +7,13 @@ title = 'Vikalp, Designer'
   author = 'Vikalp Gupta'
   ogImage = '/images/og-image.png'
 
+[permalinks]
+  writing = '/:slug'
+
 [menu]
   [[menu.main]]
     name = 'Writing'
-    url = '/blog/'
+    url = '/writing/'
     weight = 1
 
 [outputs]

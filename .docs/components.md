@@ -6,7 +6,7 @@ Reusable Hugo partials in `layouts/partials/`. When adding UI that appears in mu
 
 ## `post-card.html`
 
-Post preview card. Used on the home page and blog listing page.
+Post preview card. Used on the home page and writing listing page.
 
 **Parameters (via `dict`):**
 

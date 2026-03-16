@@ -17,9 +17,14 @@
   command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [[redirects]]
-  from = "/blog/*"
-  to = "/"
-  status = 302
+  from = "/writing/:slug"
+  to = "/:slug"
+  status = 301
+
+[[redirects]]
+  from = "/blog/:slug"
+  to = "/:slug"
+  status = 301
 
 [[redirects]]
   from = "/postcards/*"

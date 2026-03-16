@@ -10,7 +10,7 @@
     }
 
     function initTOC() {
-        // Only run on blog posts
+        // Only run on writing posts
         if (!document.querySelector('.single')) return;
 
         const content = document.querySelector('.content');

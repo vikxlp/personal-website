@@ -8,7 +8,7 @@
         {{ .Content }}
     </div>
 
-    {{ if eq .Section "blog" }}
+    {{ if eq .Section "writing" }}
     <div class="post-list">
         {{ range .Pages }}
         {{ partial "post-card.html" (dict "Page" . "showSummary" true) }}

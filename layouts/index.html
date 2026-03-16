@@ -13,7 +13,7 @@
     <section class="recent-posts">
         <h2>Writing</h2>
         <div class="post-list">
-            {{ range first 10 (where .Site.RegularPages "Section" "blog") }}
+            {{ range first 10 (where .Site.RegularPages "Section" "writing") }}
             {{ partial "post-card.html" (dict "Page" . "showSummary" false) }}
             {{ end }}
         </div>

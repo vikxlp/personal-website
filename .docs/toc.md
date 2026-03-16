@@ -6,19 +6,19 @@
 
 ## Purpose
 
-Auto-generates a fixed-position navigation panel from `h2` headings in a blog post. Highlights the active section as the reader scrolls.
+Auto-generates a fixed-position navigation panel from `h2` headings in a writing post. Highlights the active section as the reader scrolls.
 
 ---
 
 ## Loading Condition
 
-Loaded only on blog single pages. `baseof.html` checks the current section before injecting the `<script>` tag. The script itself also guards with a `.single` class check:
+Loaded only on writing single pages. `baseof.html` checks the current section before injecting the `<script>` tag. The script itself also guards with a `.single` class check:
 
 ```js
 if (!document.querySelector('.single')) return;
 ```
 
-Not loaded on: home page, blog listing, postcards, resume, or any non-blog single page.
+Not loaded on: home page, writing listing, postcards, resume, or any non-writing single page.
 
 ---
 

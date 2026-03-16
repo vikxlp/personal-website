@@ -20,7 +20,7 @@ hugo server -D             # local dev — includes drafts at localhost:1313
 **Create content:**
 
 ```bash
-hugo new blog/my-post-title.md    # new blog post
+hugo new writing/my-post-title.md # new writing post
 bash new-postcard.sh              # new postcard (auto-numbers)
 ```
 

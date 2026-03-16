@@ -53,7 +53,7 @@ Live: <https://vikalpgupta.com/>
 | `hugo.toml` | Hugo config: baseURL, menu, socialLinks params |
 | `netlify.toml` | Build command, headers, redirects, deploy previews |
 | `static/css/style.css` | All styles (~8K). Variables, components, responsive breakpoints |
-| `static/js/toc.js` | Table of Contents component (~3.5K). Blog singles only |
+| `static/js/toc.js` | Table of Contents component (~3.5K). Writing singles only |
 | `layouts/_default/baseof.html` | Base HTML: head, meta, font loading, footer toggle, TOC conditional |
 | `layouts/postcards/` | Postcards-specific layouts and custom RSS feed template |
 | `layouts/resume/single.html` | Resume page; footer suppressed via `type: resume` in front matter |
@@ -66,11 +66,11 @@ Live: <https://vikalpgupta.com/>
 ## Project Structure
 
 ```text
-├── archetypes/           # Hugo content templates (blog.md, postcards.md)
+├── archetypes/           # Hugo content templates (writing.md, postcards.md)
 ├── content/
 │   ├── _index.md         # Home page content
 │   ├── resume.md         # CV page (type: resume → footer hidden)
-│   ├── blog/*.md         # Blog posts
+│   ├── writing/*.md      # Writing posts (list page hidden; posts at root URLs)
 │   ├── postcards/*.md    # Postcards (N-YYYY-MM-DD.md)
 │   └── _future_pages/    # Draft future sections (excluded from build)
 ├── layouts/
@@ -112,7 +112,7 @@ Live: <https://vikalpgupta.com/>
 
 ```bash
 hugo server -D                # local dev (includes drafts)
-hugo new blog/slug.md         # new blog post
+hugo new writing/slug.md      # new writing post
 bash new-postcard.sh          # new postcard (auto-numbers)
 hugo --gc --minify            # production build
 ```
