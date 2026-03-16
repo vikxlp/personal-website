@@ -38,11 +38,11 @@ Soon, I got introduced to the team I would be mentoring. Sayani, Jyotsna & Abraz
 
 We met every weekend and started our session by reflecting on the past week's work. The team often got stuck in discussions while working and couldn't find clarity on how to proceed. This wasn't new and happens to most of us. I helped them identify the situations, blockers and how could they could move ahead.
 
-In initial research, they gathered a lot going through current methods and conducting interviews. It's easy to get overwhelmed with this new found information. A great way is to synthesise it by mapping the experience and lay down pain points faced by the user.
+In initial research, they gathered a lot going through current methods and conducting interviews. It's easy to get overwhelmed with this new found information. A great way is to synthesise it by [mapping the experience](https://www.oreilly.com/library/view/mapping-experiences/9781491923528/) and lay down pain points faced by the user.
 
-This resulted into a customer-journey map which helped visualise the problem in detail and identify the moments of truth to be solved. I could already see a fruitful change in how the team moved ahead. This was the first time I facilitated a new team to carry out it by themselves, the experience helped me to understand the exercise more deeply and further strengthened my understanding of the framework.
+This resulted into a [customer-journey map](https://www.nngroup.com/articles/journey-mapping-101/) which helped visualise the problem in detail and identify the moments of truth to be solved. I could already see a fruitful change in how the team moved ahead. This was the first time I facilitated a new team to carry out it by themselves, the experience helped me to understand the exercise more deeply and further strengthened my understanding of the framework.
 
-Young designers often jump directly into the tool to work on a design approach. Using tool like, Figma/Sketch which are suitable for high fidelity interfaces deviates them from the real solution instead leading them to visual design & finer details. A good idea is to focus on sketching ideas rapidly and have as many rough iterations.
+Young designers often jump directly into the tool to work on a design approach. Using tool like, Figma/Sketch which are suitable for high fidelity interfaces deviates them from the real solution instead leading them to visual design & finer details. A good idea is to [focus on sketching ideas rapidly](https://www.amazon.com/Sketching-User-Experiences-Interactive-Technologies/dp/0123740371) and have as many rough iterations.
 
 Team was getting caught up in the similar loop in later half of the project. Letting go of the tool and, sketching was liberating for them. They put in large number of ideas in short time. Giving feedback on each other's idea, combining the good parts of multiple ideas led to team collaboration and higher quality output.
 
@@ -54,4 +54,4 @@ The experience of mentoring keen and open minded designers new to this field has
 
 ---
 
-*This article was originally published on [Ownpath's blog](https://www.ownpath.co/).*
+*This article was originally published on [Ownpath's blog](https://www.ownpath.com/).*
