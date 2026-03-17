@@ -1,11 +1,9 @@
 ---
 title: "Resume"
 type: resume
-description: "Vikalp Gupta — Design Lead with 10+ years of experience building digital products across AI, consumer, fintech, and healthcare."
+description: "Vikalp Gupta — Design leader with 10+ years of experience building digital products across AI, consumer, fintech, and healthcare."
 ---
 
-
-Design Lead / Senior Design Manager
 
 I'm a Design leader with 10+ years of experience building and scaling digital products across AI, consumer, fintech, and healthcare platforms. Proven partner to founders, heads of Product, and executive leadership, translating complex business challenges into clear, humane product experiences.
 
@@ -13,15 +11,21 @@ Experienced in 0 to 1 journeys, platform scale systems, and team leadership, wit
 
 ## Experience
 
+### Design Director
+
+Ownpath Studios · 2024 – Ongoing
+
+Partnered with the founder to build and scale the studio's services arm, leading multiple client engagements across product and brand. Defined service offerings, established processes and ways of working, hired and mentored designers, and owned quality and delivery across engagements.
+
+- **Realfast** — partnered directly with founders to realign brand, visual language, and end-to-end product experience for a suite of AI agents built on Salesforce. Established the product design function working closely with engineering and business teams, owning product design and frontend experience.
+- **Koolio** — led redesign of the flagship AI podcasting product, helping everyday users create studio-quality podcasts as intuitively as editing text. Introduced a new visual and interaction system optimized for creator workflows.
+- **Philips Innovation** — designed a consumer heart-health app supporting millions of potential users, enabling people (30yrs+) to understand cardiac health via smartphone. Focused on trust, accessibility, and long-term behavior change in a regulated healthcare context.
+
 ### Independent Design Consultant
 
-2023 – 2025
+2022 – 2024
 
 Worked as a senior design partner with founders, startups, and large organizations, advising on product strategy, UX, and visual systems. Led and coordinated cross-functional pods including product designers, brand designers, UX researchers, and frontend engineers.
-
-- **Realfast** — partnered directly with founders to realign brand, visual language, and end-to-end product experience for a suite of AI agents built on Salesforce, improving positioning and clarity for global customers. Established the product design function working closely with engineering and business teams, owning product design and frontend experience.
-- **Koolio** — led redesign of the flagship AI podcasting product, helping everyday users create studio-quality podcasts as intuitively as editing text. Introduced a new visual and interaction system optimized for creator workflows.
-- **Philips Innovation** — designed a consumer heart health app supporting millions of potential users, enabling people aged 30+ to understand cardiac health via smartphone. Focused on trust, accessibility, and long-term behavior change in a regulated healthcare context.
 
 ### Design Lead
 
