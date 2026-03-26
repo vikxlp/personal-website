@@ -18,6 +18,7 @@ hugo_stats.json
 
 # Claude Code
 .claude/
+.specify/
 
 # Future content
 /_future_pages/
