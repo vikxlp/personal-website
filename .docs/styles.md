@@ -30,7 +30,7 @@ Source of truth for typography, color, and layout tokens in `static/css/style.cs
 ### Fonts & Layout
 | Variable | Value |
 |---|---|
-| `--font-sans` | Sora, system fallbacks |
+| `--font-sans` | Oxygen, system fallbacks |
 | `--font-serif` | Newsreader, Georgia fallbacks |
 | `--font-mono` | SF Mono, Menlo fallbacks |
 | `--max-width` | `640px` |
@@ -50,11 +50,11 @@ To apply a style to a new element: either add it to the selector group in `style
 | `.ts-h1` | `.single h1` | sans | `--text-h1` | 400 | 1.2 | primary |
 | `.ts-h2` | `.content h2` | sans | `--text-h2` | 400 | 1.2 | primary |
 | `.ts-h3` | `.content h3` | sans | `--text-h3` | 400 | 1.5 | primary |
-| `.ts-body` | `.content p`, `.intro` | sans | `--text-body` | 300 | 1.5 | secondary |
-| `.ts-nav` | `.nav-menu a` | sans | `--text-md` | 300 | 1 | tertiary |
+| `.ts-body` | `.content p`, `.intro` | sans | `--text-body` | 400 | 1.5 | secondary |
+| `.ts-nav` | `.nav-menu a` | sans | `--text-md` | 400 | 1.25 | tertiary |
 | `.ts-sm` | `.post-preview time`, `.single time`, `.toc-item` | sans | `--text-sm` | 400 | 1.5 | tertiary |
 | `.ts-caption` | `.content figcaption`, `.postcard-cover figcaption`, `.site-footer` | serif italic | `--text-sm` | 300 | 1.5 | tertiary |
-| `.ts-btn` | `.buttons a` | sans | `--text-md` | 400 | 1 | secondary |
+| `.ts-btn` | `.buttons a` | sans | `--text-md` | 400 | 1.25 | secondary |
 | `.ts-link` | `a` | inherit | inherit | inherit | inherit | inherit (underline) |
 
 ### Token details
@@ -62,6 +62,7 @@ To apply a style to a new element: either add it to the selector group in `style
 **`ts-h1`** — letter-spacing: -0.02em
 **`ts-h2`** — letter-spacing: -0.01em
 **`ts-h3`** — letter-spacing: 0
+**`ts-body`** — letter-spacing: 0.01em
 **`ts-caption`** — font-style: italic, font-family: serif
 **`ts-link`** — text-decoration-thickness: 2px, text-underline-offset: 3px, decoration color uses `color-mix()` semi-transparency; hover changes decoration to `--color-highlight`
 
