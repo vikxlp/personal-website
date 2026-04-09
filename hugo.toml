@@ -28,9 +28,6 @@ title = 'Vikalp, Designer'
   name = "Twitter"
   url = "https://twitter.com/vikxlp"
 
-[[params.socialLinks]]
-  name = "Mastodon"
-  url = "https://tatooine.club/@vikalp"
 
 [markup]
   [markup.goldmark]
