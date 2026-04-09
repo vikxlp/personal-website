@@ -36,7 +36,7 @@ Live: <https://vikalpgupta.com/>
 | CDN/DNS | Cloudflare |
 | CSS | Vanilla CSS (variables, no preprocessor) |
 | JavaScript | Vanilla JS |
-| Fonts | Sora, Newsreader (Google Fonts) |
+| Fonts | DM Sans (self-hosted, `static/fonts/DMSans-Regular.woff2`), PT Serif (Google Fonts) |
 
 ---
 
@@ -82,6 +82,7 @@ Live: <https://vikalpgupta.com/>
 ├── static/
 │   ├── css/style.css     # All styles
 │   ├── js/toc.js         # Table of Contents component
+│   ├── fonts/            # Self-hosted fonts (DMSans-Regular.woff2)
 │   └── images/           # mark.svg, og-image.png, profile.png, postcards/
 ├── hugo.toml             # Hugo config
 ├── netlify.toml          # Build, deploy, headers, redirects
@@ -102,7 +103,7 @@ Live: <https://vikalpgupta.com/>
 
 **Typography** (base 16px): `--text-h1` 40px · `--text-h2` 32px · `--text-h3` 24px · `--text-body` 18px · `--text-md` 16px · `--text-sm` 14px · `--text-toc` 12px. Mobile overrides: h1→32px, h3→20px.
 
-**Layout:** `--max-width: 640px` · `--spacing: 3rem` · fonts: `--font-sans` (Sora), `--font-serif` (Newsreader)
+**Layout:** `--max-width: 640px` · `--spacing: 3rem` · fonts: `--font-sans` (DM Sans, self-hosted), `--font-serif` (PT Serif, Google Fonts)
 
 **Naming:** Component-scoped BEM-adjacent — `site-header`, `post-preview`, `toc-container`, `social-links`.
 
@@ -136,7 +137,7 @@ process.exit(Object.values(cats).every(c => c.score * 100 >= 85) ? 0 : 1);
 
 ## Performance Constraints
 
-1. No new external fonts — use Sora + Newsreader only
+1. No new external fonts — use DM Sans (self-hosted) + PT Serif (Google Fonts) only
 2. Lazy-load all images — `loading="lazy"` attribute
 3. CSS under 15K uncompressed
 4. JS is optional — site must work fully without it

@@ -30,12 +30,32 @@ Source of truth for typography, color, and layout tokens in `static/css/style.cs
 ### Fonts & Layout
 | Variable | Value |
 |---|---|
-| `--font-sans` | Oxygen, system fallbacks |
-| `--font-serif` | Newsreader, Georgia fallbacks |
+| `--font-sans` | DM Sans, system fallbacks |
+| `--font-serif` | PT Serif, Georgia fallbacks |
 | `--font-mono` | SF Mono, Menlo fallbacks |
 | `--max-width` | `640px` |
 | `--spacing` | `3rem` (section gap) |
 | `--ease-out-expo` | `cubic-bezier(0.16, 1, 0.3, 1)` |
+
+#### Font loading
+
+**DM Sans — self-hosted** (`static/fonts/DMSans-Regular.woff2`, 21K)
+
+Self-hosting is required to use OpenType stylistic sets. Google Fonts CDN strips these features during subsetting — tested both the static (`wght@400`) and variable font URLs; all stylistic set rows rendered identically in the browser. The full font package was downloaded, Regular weight converted to woff2 via fonttools, and all other files discarded.
+
+Two OpenType features are enabled globally on `body`:
+- `ss03` — single-storey alternative `g`
+- `ss07` — alternative number forms
+
+```css
+font-feature-settings: "ss03" 1, "ss07" 1;
+```
+
+Served via `@font-face` in `style.css` with `font-display: swap`. Preloaded in `baseof.html`.
+
+**PT Serif — Google Fonts CDN**
+
+No OpenType features needed for serif usage (captions, article credits). CDN delivery is sufficient.
 
 ---
 
@@ -62,7 +82,7 @@ To apply a style to a new element: either add it to the selector group in `style
 **`ts-h1`** — letter-spacing: -0.02em
 **`ts-h2`** — letter-spacing: -0.01em
 **`ts-h3`** — letter-spacing: 0
-**`ts-body`** — letter-spacing: 0.01em
+**`ts-body`** — letter-spacing: -0.01em
 **`ts-caption`** — font-style: italic, font-family: serif
 **`ts-link`** — text-decoration-thickness: 2px, text-underline-offset: 3px, decoration color uses `color-mix()` semi-transparency; hover changes decoration to `--color-highlight`
 
@@ -77,5 +97,5 @@ These have contextual styling that diverges from the general token system. Left 
 | `.hero h1` | Renders at `var(--text-body)` (18px) by design | Home page greeting — intentionally not a large heading |
 | `.subtitle` | `var(--text-body)` size + `color-text-tertiary` | Home page subtitle line |
 | `.recent-posts h2`, `.list h1` | `var(--text-body)` size, primary color, weight 400 | Section label styled as body text |
-| `.resume .content h2` | Uppercase, `var(--text-md)`, `letter-spacing: 0.06em`, tertiary | Resume section label overrides `ts-h2` |
+| `.resume .content h2` | Uppercase, `var(--text-md)`, `letter-spacing: -0.01em`, tertiary | Resume section label overrides `ts-h2` |
 | `.resume .content h3` | `margin-bottom: 0` tight spacing | Resume role heading overrides `ts-h3` spacing |
