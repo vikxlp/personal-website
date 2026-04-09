@@ -1,7 +1,7 @@
 /* DM Sans: self-hosted for OpenType stylistic sets (ss03=alt g, ss07=alt numbers) */
 @font-face {
     font-family: 'DM Sans';
-    src: url('/fonts/DM_Sans/static/DMSans-Regular.woff2') format('woff2');
+    src: url('/fonts/DMSans-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
