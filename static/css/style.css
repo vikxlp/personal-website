@@ -1,4 +1,13 @@
-/* Fonts loaded asynchronously via baseof.html — no @import here */
+/* DM Sans: self-hosted for OpenType stylistic sets (ss03=alt g, ss07=alt numbers) */
+@font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DM_Sans/static/DMSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* PT Serif loaded asynchronously via baseof.html */
 
 /* Reset and Base Styles */
 * {
@@ -143,6 +152,7 @@ body {
     background: var(--color-bg);
     font-size: 16px;
     font-weight: 400;
+    font-feature-settings: "ss03" 1, "ss07" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- DM Sans: self-hosted for OpenType stylistic sets (ss03, ss07) -->
+    <link rel="preload" href="/fonts/DM_Sans/static/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
 
@@ -21,9 +24,9 @@
     <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Postcards" href="{{ "/postcards/index.xml" | absURL }}">
     {{ end }}
 
-    <!-- Async font loading: preload + swap to avoid render-blocking -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&family=PT+Serif:ital,wght@0,400;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&family=PT+Serif:ital,wght@0,400;1,400&display=swap"></noscript>
+    <!-- Async font loading: PT Serif only (DM Sans self-hosted via @font-face in CSS) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;1,400&display=swap"></noscript>
 </head>
 <body>
     {{ partial "header.html" . }}
