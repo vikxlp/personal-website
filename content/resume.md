@@ -5,53 +5,44 @@ description: "Vikalp Gupta — Design leader with 10+ years of experience buildi
 ---
 
 
-I'm a Design leader with 10+ years of experience building and scaling digital products across AI, consumer, fintech, and healthcare platforms. Proven partner to founders, heads of Product, and executive leadership, translating complex business challenges into clear, humane product experiences.
+I'm a Design leader with 10+ years of experience building and scaling digital products across AI, consumer, fintech, and healthcare platforms. 
 
-Experienced in 0 to 1 journeys, platform scale systems, and team leadership, with a strong track record of shaping design culture, mentoring designers, and influencing product strategy at leadership level.
+Experienced in 0→1 journeys and platform-scale systems, with a track record of establishing design functions, shaping product strategy, and building high-performing teams.
+
 
 ## Experience
 
 ### Design Director
 
-Ownpath Studios · 2024 – Ongoing
+Ownpath Studios · 2023 – Ongoing
 
-Partnered with the founder to build and scale the studio's services arm, leading multiple client engagements across product and brand. Defined service offerings, established processes and ways of working, hired and mentored designers, and owned quality and delivery across engagements.
+Worked closely with the founder to build and scale the studio’s design services arm from early stage, defining offerings, positioning, and delivery model across product and brand engagements
 
-- **Realfast** — partnered directly with founders to realign brand, visual language, and end-to-end product experience for a suite of AI agents built on Salesforce. Established the product design function working closely with engineering and business teams, owning product design and frontend experience.
-- **Koolio** — led redesign of the flagship AI podcasting product, helping everyday users create studio-quality podcasts as intuitively as editing text. Introduced a new visual and interaction system optimized for creator workflows.
-- **Philips Innovation** — designed a consumer heart-health app supporting millions of potential users, enabling people (30yrs+) to understand cardiac health via smartphone. Focused on trust, accessibility, and long-term behavior change in a regulated healthcare context.
+- Built and scaled a 10+ member multidisciplinary design team (product, brand, UX research); defined hiring bar and quality benchmarks
 
-### Independent Design Consultant
+- Established processes across engagements and owned end-to-end design quality and delivery, ensuring consistency across product and brand experiences
 
-2022 – 2024
-
-Worked as a senior design partner with founders, startups, and large organizations, advising on product strategy, UX, and visual systems. Led and coordinated cross-functional pods including product designers, brand designers, UX researchers, and frontend engineers.
+- Collaborated with founders and leadership teams to shape product direction and design strategy, leading 0→1 execution for AI-native startups (Realfast, Koolio) and enterprise clients (Philips Innovation, Hero Vida)
 
 ### Design Lead
 
 Obvious · 2017 – 2022
 
-Led and managed a team of 4 designers, delivering end-to-end product design across healthcare, fintech, media, gaming, and consumer platforms.
+- Led and grew a team of designers, establishing standards, mentorship, playbooks, and processes to enable consistent, high-quality delivery
 
-- Partnered with founders and senior leadership to define product strategy, design direction, and ways of working
-- Translated complex business challenges into scalable, system-driven product experiences
-- Built internal playbooks, design processes, and mentored designers for growth and impact
+- Partnered with founders and senior leadership to shape product strategy and design direction; translated complex problems and led 0→1 execution across fintech (Kotak Securities), global knowledge platforms (Wikimedia Foundation / Wikipedia), and public health tools (Simple.org)
 
-Selected work:
-
-- **Swiggy** — built and established a platform-scale design system for consumer-facing teams, helping unify brand and experience across one of India's largest delivery platforms
-- **Kotak Securities** — led design for a new mobile and web trading platform targeting next-generation investors
-- **Wikimedia Foundation / Wikipedia** — designed mobile interaction patterns to improve access to knowledge for students in vernacular languages
-- **Simple.org** — designed an offline-first app used by nurses in public health centers to manage long-term cardiac patient data
+- Worked closely with engineering and design leadership to build a platform-scale design system for Swiggy (India’s largest food & quick commerce platform), improving team efficiency and accelerating product delivery
 
 ### Founding Designer (Core Team)
 
 Razorpay · 2014 – 2017
 
-- First designer and early member of the founding team, worked directly with founders during the company's zero-to-one and early scale phase
-- Owned design across brand, merchant onboarding, dashboards, checkout, and consumer touchpoints
-- Helped shape early product strategy, visual identity, and design culture as the company scaled rapidly
-- Contributed to experiences now used by hundreds of thousands of merchants across India
+- First designer and early member of the founding team; worked directly with founders during Razorpay’s 0→1 and early scale phase
+
+- Owned design across brand, onboarding, dashboards, checkout, and consumer touchpoints; shaped early product strategy, visual identity, and design culture during rapid growth
+
+- Designed core product experiences now used by millions of merchants across India
 
 ## Education
 
@@ -59,6 +50,6 @@ Razorpay · 2014 – 2017
 Indian Institute of Technology Roorkee · 2011 – 2015
 
 <div class="resume-contact-row">
-<span>Email me at <a href="mailto:work@vikalp.me">work@vikalp.me</a></span>
-<div class="buttons"><a href="/resume.pdf" download>Download PDF</a></div>
+<span>Email me at <a href="mailto:work@vikalpgupta.com">work@vikalpgupta.com</a></span>
+<div class="buttons"><a href="/vikalp-designer-resume.pdf" download>Download PDF</a></div>
 </div>
