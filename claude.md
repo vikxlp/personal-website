@@ -59,6 +59,7 @@ Live: <https://vikalpgupta.com/>
 | `layouts/resume/single.html` | Resume page; footer suppressed via `type: resume` in front matter |
 | `archetypes/postcards.md` | Postcard front matter template |
 | `new-postcard.sh` | Auto-numbers and creates new postcards |
+| `publish.sh` | Publishes any draft: sets today's date, flips draft→false, stages file |
 | `content/_future_pages/` | Draft future sections (Photography, Gear) — excluded from build |
 
 ---
@@ -115,6 +116,7 @@ Live: <https://vikalpgupta.com/>
 hugo server -D                # local dev (includes drafts)
 hugo new writing/slug.md      # new writing post
 bash new-postcard.sh          # new postcard (auto-numbers)
+bash publish.sh               # publish a draft (interactive picker; sets date + draft: false)
 hugo --gc --minify            # production build
 ```
 

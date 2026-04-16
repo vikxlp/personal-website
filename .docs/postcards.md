@@ -103,11 +103,14 @@ coverCaption: "Caption below image"            # optional, site only
 
 ```bash
 bash new-postcard.sh          # creates content/postcards/N-YYYY-MM-DD.md
-# edit: set draft: false, add cover if needed, write content
+# write content, add cover image if needed
 hugo server -D                # preview at /postcards/ and /postcards/N-YYYY-MM-DD/
-git add content/postcards/ static/images/postcards/
-git commit -m "Postcard N" && git push
+bash publish.sh               # sets today's date, flips draft: false, stages the file
+git add static/images/postcards/  # if a cover image was added
+git commit -m "Add postcard N" && git push
 ```
+
+**Note on dates:** Drafts are created with the draft creation date. `publish.sh` updates `date` to today automatically — no manual edit needed.
 
 **RSS local testing note:** Drafts are excluded from RSS even with `-D`. Images in RSS appear blank in readers when served from localhost — readers sandbox local requests. Use `ngrok http 1313` for a public URL to test images in a reader.
 
