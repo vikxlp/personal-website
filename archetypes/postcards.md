@@ -1,6 +1,6 @@
 ---
 title: "{{ index (split .File.ContentBaseName "-") 0 }}"
-date: {{ .Date }}
+date: {{ .Date }} # update to publish date before going live
 draft: true
 cover: "/images/postcards/NN-descriptor.jpg"
 coverAlt: ""
@@ -9,7 +9,7 @@ coverCaption: ""
 
 Write your postcard here...
 
-H3 - Interesting things worth sharing
+Reading, listening, watching from the internet
 
 links
 
