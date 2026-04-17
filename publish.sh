@@ -4,7 +4,11 @@ set -e
 FILE="$1"
 
 if [ -z "$FILE" ]; then
-  mapfile -d '' DRAFTS < <(grep -rlZ '^draft: true' content/ --include='*.md' 2>/dev/null | sort -z)
+  # mapfile -d '' DRAFTS < <(grep -rlZ '^draft: true' content/ --include='*.md' 2>/dev/null | sort -z)  # requires bash 4+
+  DRAFTS=()
+  while IFS= read -r -d '' f; do
+    DRAFTS+=("$f")
+  done < <(grep -rlZ '^draft: true' content/ --include='*.md' 2>/dev/null | sort -z)
 
   if [ ${#DRAFTS[@]} -eq 0 ]; then
     echo "No drafts found."
