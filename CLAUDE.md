@@ -46,13 +46,15 @@ Live: <https://vikalpgupta.com/>
 | --- | --- |
 | `CLAUDE.md` | Agent + human context — you are here |
 | `README.md` | Human-readable project overview |
+| `backup.md` | Archive of content removed during doc rewrites (verbatim, for reference) |
 | `.docs/infrastructure.md` | Hosting, DNS, CDN, Netlify/Cloudflare setup, request flow |
 | `.docs/postcards.md` | Postcards feature: content model, RSS, Buttondown, workflow |
 | `.docs/components.md` | Hugo partials: post-card, link-buttons, meta, post-meta — usage and params |
+| `.docs/styles.md` | Authoritative style tokens: colors, type scale, fonts, layout |
 | `.docs/toc.md` | Table of Contents JS component: behaviour, loading, CSS classes |
 | `hugo.toml` | Hugo config: baseURL, menu, socialLinks params |
 | `netlify.toml` | Build command, headers, redirects, deploy previews |
-| `static/css/style.css` | All styles (~8K). Variables, components, responsive breakpoints |
+| `static/css/style.css` | All styles (~15K). Variables, components, responsive breakpoints |
 | `static/js/toc.js` | Table of Contents component (~3.5K). Writing singles only |
 | `layouts/_default/baseof.html` | Base HTML: head, meta, font loading, footer toggle, TOC conditional |
 | `layouts/postcards/` | Postcards-specific layouts and custom RSS feed template |
@@ -60,7 +62,7 @@ Live: <https://vikalpgupta.com/>
 | `archetypes/postcards.md` | Postcard front matter template |
 | `new-postcard.sh` | Auto-numbers and creates new postcards |
 | `publish.sh` | Publishes any draft: sets today's date, flips draft→false, stages file |
-| `content/_future_pages/` | Draft future sections (Photography, Gear) — excluded from build |
+| `_future_pages/` | Draft future sections (Photography, Gear) — gitignored, at repo root |
 
 ---
 
@@ -72,8 +74,7 @@ Live: <https://vikalpgupta.com/>
 │   ├── _index.md         # Home page content
 │   ├── resume.md         # CV page (type: resume → footer hidden)
 │   ├── writing/*.md      # Writing posts (list page hidden; posts at root URLs)
-│   ├── postcards/*.md    # Postcards (N-YYYY-MM-DD.md)
-│   └── _future_pages/    # Draft future sections (excluded from build)
+│   └── postcards/*.md    # Postcards (N-YYYY-MM-DD.md)
 ├── layouts/
 │   ├── index.html        # Home page template
 │   ├── _default/         # baseof.html, single.html, list.html
@@ -87,6 +88,7 @@ Live: <https://vikalpgupta.com/>
 │   └── images/           # mark.svg, og-image.png, profile.png, postcards/
 ├── hugo.toml             # Hugo config
 ├── netlify.toml          # Build, deploy, headers, redirects
+├── _future_pages/        # Draft future sections (Photography, Gear) — gitignored
 └── new-postcard.sh       # Postcard creation script
 ```
 
@@ -94,19 +96,7 @@ Live: <https://vikalpgupta.com/>
 
 ## CSS Quick Reference
 
-**Colors**
-
-- `--color-text-primary: #293A41` — headings, links
-- `--color-text-secondary: #4D646D` — body text
-- `--color-text-tertiary: #889FA9` — nav, timestamps, muted
-- `--color-bg: #fcfeff` — page background
-- `--color-bg-card: rgba(136,159,169,0.08)` — hover/card tint
-
-**Typography** (base 16px): `--text-h1` 40px · `--text-h2` 32px · `--text-h3` 24px · `--text-body` 18px · `--text-md` 16px · `--text-sm` 14px · `--text-toc` 12px. Mobile overrides: h1→32px, h3→20px.
-
-**Layout:** `--max-width: 640px` · `--spacing: 3rem` · fonts: `--font-sans` (DM Sans, self-hosted), `--font-serif` (PT Serif, Google Fonts)
-
-**Naming:** Component-scoped BEM-adjacent — `site-header`, `post-preview`, `toc-container`, `social-links`.
+See `.docs/styles.md` — authoritative source for tokens (colors, type scale, layout, fonts). Naming is component-scoped BEM-adjacent: `site-header`, `post-preview`, `toc-container`, `social-links`.
 
 ---
 
@@ -146,6 +136,8 @@ process.exit(Object.values(cats).every(c => c.score * 100 >= 85) ? 0 : 1);
 5. No render-blocking resources — defer/async JS, preconnect fonts
 6. Prefer SVG for icons and graphics
 7. Run Lighthouse (85+ all categories) before pushing
+
+> **Heads-up:** `static/css/style.css` is currently ~15,092 bytes — 92 bytes over the 15K cap. Needs a minor trim to come back under budget.
 
 ---
 
